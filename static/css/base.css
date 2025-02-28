@@ -1,0 +1,18 @@
+body {
+    color: #555;
+    font-family: 'Saira';
+}
+
+.main-image {
+    background: url('/media/main-image-bella.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid #000 !important;
+}
