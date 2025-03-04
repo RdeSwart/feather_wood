@@ -1,12 +1,31 @@
 body {
-    color: #555;
+    color: #4b4848;
     font-family: 'Saira';
 }
 
-.main-image {
-    background: url('/media/main-image-bella.jpg') no-repeat center center fixed;
+header.masthead {
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    color: #fff;
+    background-image: url("/media/main-image-bella.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
     background-size: cover;
-    height: 100vh;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+}
+
+#delivery-banner {
+    background-color: #b6afaf;
+    color: #fff;
+}
+ 
+.icon {
+    color: #555 !important;
 }
 
 .text-black {
@@ -16,3 +35,24 @@ body {
 .border-black {
     border: 1px solid #000 !important;
 }
+
+@media (min-width: 768px) {
+    header.masthead {
+      padding-top: 17rem;
+      padding-bottom: 12.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        justify-content: space-evenly;
+        padding-top: 2em;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+}
+
