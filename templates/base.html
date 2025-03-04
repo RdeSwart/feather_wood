@@ -61,62 +61,37 @@
   <body>
     <!-- Header -->
     <header class="container-fluid fixed-top">
-        <ul class="list-group list-unstyled list-group-horizontal">
-          <li>Free shipping when you spend €50</li>
-          <li><a href="https://www.facebook.com/featherandwood" title="Facebook" target="_blank" class="button secondary"><i class="fa-brands fa-square-facebook"></i></a></li> 
-          <li><a href="https://www.instagram.com" title="Instagram" target="_blank" class="button secondary noSidePadding"><i class="fa-brands fa-instagram"></i></a></li>
-          <li><a href="https://www.x.com" title="Twitter" target="_blank" class="button secondary noSidePadding"><i class="fa-brands fa-square-x-twitter"></i></a></li>   
-        </ul>
-    </header>
-      <!-- Navigation -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container px-4 px-lg-5">
+      <div id="delivery-banner" class="row text-center text-white">
+        <div class="col bg-black text-black">
+          <h4 class="my-1">Free delivery on orders over €50</h4>
+        </div>
+      </div>
+      <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
           <a href="{% url 'home' %}" class="nav-link main-logo-link">
             <h2 class="logo-font text-black my-0">Feather and Wood</h2>
           </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#!">All Products</a></li>
-                            <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                            <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                        </ul>
-                    </li>
-                </ul>
+        </div>
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+          <form method="GET" action="">
+            <div class="input-group w-100">
+              <input class="form-control border border-black rounded-0" type="text" name="q"
+                placeholder="Search">
+              <div class="input-group-append">
+                <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                  <span class="icon">
+                    <i class="fas fa-search"></i>
+                  </span>
+                </button>
               </div>
-              <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form class="d-flex" method="GET" action="">
-                  <div class="input-group w-100">
-                    <input class="form-control border border-black rounded-0" type="search" name="q" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                      <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                        <span class="icon">
-                            <i class="bi bi-search"></i>
-                          </span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
-                <div class="text-center">
-                  <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                  <p class="my-0">
-                    {% if grand_total %}
-                      €{{ grand_total|floatformat:2 }}
-                    {% else %}
-                      €0.00
-                    {% endif %}
-                  </p>
-                </div>
-              </a>
-              <a class="nav-link" href="a" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </div>
+          </form>
+        </div>
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+          <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+            <li class="list-inline-item dropdown">
+              <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
                 <div class="text-center">
                   <div><i class="fas fa-user fa-lg"></i></div>
                   <p class="my-0">My Account</p>
@@ -124,19 +99,48 @@
               </a>
               <div class="dropdown-menu border-0" aria-labelledby="user-options">
                 {% if request.user.is_authenticated %}
-                  {% if request.user.is.superuser %}
-                    <a href="" class="dropdown-item">Product Management</a>
-                  {% endif %}
-                  <a href="" class="dropdown-item">My Account</a>
-                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                {% if request.user.is_superuser %}
+                <a href="" class="dropdown-item">Product Management</a>
+                {% endif %}
+                <a href="" class="dropdown-item">My Profile</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                 {% else %}
-                  <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                  <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                 {% endif %}
               </div>
-            </div>
+            </li>
+            <li class="list-inline-item">
+              <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+                <div class="text-center">
+                  <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                  <p class="my-0">
+                    {% if grand_total %}
+                    ${{ grand_total|floatformat:2 }}
+                    {% else %}
+                    $0.00
+                    {% endif %}
+                  </p>
+                </div>
+              </a>
+            </li>
+          </ul>
         </div>
-    </nav>
+      </div>
+      <div class="row bg-white">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light w-100">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+            aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          {% include 'includes/mobile_top_header.html' %}
+          {% include 'includes/main_nav.html' %}
+        </nav>
+      </div>
+    </header>
+        
+    
     
 
     {% if messages %}
