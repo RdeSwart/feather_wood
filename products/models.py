@@ -1,4 +1,5 @@
 from django.db import models
+from decimal import Decimal
 
 
 class Product(models.Model):
@@ -17,11 +18,11 @@ class Product(models.Model):
 
     @property
     def discounted_price(self):
-        return((self.rrp_price)*(self.discount))/100
-    
+        return round((self.rrp_price * self.discount) / Decimal(100), 2)
+   
     @property
     def sale_price(self):
-        return (self.rrp_price)-(self.discounted_price)
+        return round(self.rrp_price - self.discounted_price, 2)
 
     def __str__(self):
         return self.name
@@ -36,10 +37,10 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-    
+     
     def get_friendly_name(self):
         return self.friendly_name
-    
+
 
 class Brand(models.Model):
     name = models.CharField(max_length=300)
@@ -49,6 +50,6 @@ class Brand(models.Model):
 
     def __str__(self):
         return self.name
-    
+   
     def get_friendly_name(self):
         return self.friendly_name
