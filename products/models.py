@@ -26,6 +26,32 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_star_rating(self):
+        # Ensure the rating is a number between 0 and 5
+        score = self.rating if self.rating else 0
+        score = min(max(score, 0), 5)
+
+        full_stars = int(score)  # number of full stars
+        half_star = 1 if score - full_stars >= 0.5 else 0  # half star
+        empty_stars = 5 - full_stars - half_star  # empty stars
+
+        # Construct the HTML string based on the stars
+        star_rating_html = ""
+
+        # Add full stars
+        for _ in range(full_stars):
+            star_rating_html += '<i class="bi bi-star-fill text-warning"></i>'
+
+        # Add half star
+        if half_star:
+            star_rating_html += '<i class="bi bi-star-half text-warning"></i>'
+
+        # Add empty stars
+        for _ in range(empty_stars):
+            star_rating_html += '<i class="bi bi-star text-warning"></i>'
+
+        return star_rating_html
 
 
 class Category(models.Model):

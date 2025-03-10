@@ -22,11 +22,11 @@
                     {% endif %}
                     <!-- Product image -->
                     {% if product.image %}
-                    <a href="">
+                    <a href="{% url 'product_detail' product.id %}">
                         <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}" />
                     </a>
                     {% else %}
-                    <a href="">
+                    <a href="{% url 'product_detail' product.id %}">
                         <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" />
                     </a>
                     {% endif %}
@@ -36,6 +36,7 @@
                             <!-- Product name -->
                             <h5 class="fw-bolder">{{ product.name }}</h5>
                             {% if product.rating %}
+                            {{ product.get_star_rating|safe }}
                                 <small class="text-muted"><i class="fas fa-star mr-1"></i> {{ product.rating }} </small><hr>
                             {% else %}
                                 <small class="text-muted">No rating yet</small><hr>
@@ -55,6 +56,21 @@
                     </div>
                 </div>
             </div>
+            {% if forloop.counter|divisibleby:2 %}
+            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                <hr>
+            </div>
+            {% endif %}
+            {% if forloop.counter|divisibleby:3 %}
+                <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                    <hr>
+                </div>
+            {% endif %}
+            {% if forloop.counter|divisibleby:4 %}
+                <div class="col-12 d-none d-xl-block mb-5">
+                    <hr>
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
 </div>

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<header class="masthead">
+    <div class="container">
+        <a id="shop-now" class="btn btn-primary btn-xl text-uppercase" href="{% url 'products' %}">Shop Now</a>
+    </div>
+</header>
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Product Images -->
+        <div class="col-md-6 mb-4">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded mb-3 product-image" id="mainImage">
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-6">
+            <h2 class="mb-3">{{ product.name }}</h2>
+            {% if product.discount %}
+            <div class="mb-3">
+                <span class="h4 me-2">€{{ product.sale_price }}</span>
+                <span class="text-muted"><s>€{{ product.rrp_price }}</s></span>
+            </div>
+            {% else %}
+            <div class="mb-3">
+                <span class="h4 me-2">€{{ product.rrp_price }}</span>
+            </div>
+            {% endif %}
+            <div class="mb-3">
+                {{ product.get_star_rating|safe }}
+                <span class="ms-2">{{ product.rating }}</span>
+            </div>
+            <p class="mb-4">{{ product.description }}</p>
+            
+            <div class="mb-4">
+                <label for="quantity" class="form-label">Quantity:</label>
+                <input type="number" class="form-control" id="quantity" value="1" min="1" style="width: 80px;">
+            </div>
+            <button class="btn btn-primary btn-lg mb-3 me-2">
+                    <i class="bi bi-cart-plus"></i> Add to Cart
+                </button>
+            <button class="btn btn-outline-secondary btn-lg mb-3">
+                    <i class="bi bi-heart"></i> Add to Wishlist
+                </button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function changeImage(event, src) {
+            document.getElementById('mainImage').src = src;
+            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+</script>
+
+{% endblock %}

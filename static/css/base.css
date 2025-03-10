@@ -36,6 +36,25 @@ header.masthead {
     border: 1px solid #000 !important;
 }
 
+/* --------------------------------------------------- Product detail page from Bootstrap Examples.com */
+.product-image {
+    max-height: 400px;
+    object-fit: cover;
+}
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+.thumbnail:hover, .thumbnail.active {
+    opacity: 1;
+}
+
+/* --------------------------------------------------- Media Queries */
+
 @media (min-width: 768px) {
     header.masthead {
       padding-top: 17rem;
