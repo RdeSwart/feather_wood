@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-<header class="masthead">
+<header class="masthead img-fluid">
     <div class="container">
         <a id="shop-now" class="btn btn-primary btn-xl text-uppercase" href="{% url 'products' %}">Shop Now</a>
     </div>
@@ -30,6 +30,13 @@
             <div class="mb-3">
                 <span class="h4 me-2">€{{ product.rrp_price }}</span>
             </div>
+            {% endif %}
+            {% if product.category %}
+                <p class="small mt-1 mb-0">
+                    <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                        <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                    </a>
+                </p>
             {% endif %}
             <div class="mb-3">
                 {{ product.get_star_rating|safe }}

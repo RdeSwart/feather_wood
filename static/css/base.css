@@ -13,6 +13,19 @@ header.masthead {
     background-attachment: scroll;
     background-position: center center;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100vh;  
+    
+}
+
+#shop-now {
+    margin-bottom: 2rem;
+}
+
+.navbar {
+    flex-wrap: nowrap !important;
 }
 
 .navbar-brand {
@@ -22,6 +35,17 @@ header.masthead {
 #delivery-banner {
     background-color: #b6afaf;
     color: #fff;
+}
+
+.btn-primary {
+    color: #000;
+    background-color: #daa1d0;
+    border-color: #daa1d0;
+}
+
+a {
+    color: #815c7b;
+    text-decoration: underline;
 }
  
 .icon {
@@ -38,8 +62,9 @@ header.masthead {
 
 /* --------------------------------------------------- Product detail page from Bootstrap Examples.com */
 .product-image {
-    max-height: 400px;
+    max-height: 250px;
     object-fit: cover;
+    width: 100%;
 }
 .thumbnail {
     width: 80px;

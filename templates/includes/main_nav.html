@@ -3,7 +3,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop By</a>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="{% url 'products' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop By</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
                     <li><a class="dropdown-item" href="{% url 'products' %}?sort=rrp_price&direction=asc">Price</a></li>
@@ -13,7 +13,7 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Brands</a>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="{% url 'products' %}?category=melissa_and_doug,stockmar,hape,bigjigs" role="button" data-bs-toggle="dropdown" aria-expanded="false">Brands</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="{% url 'products' %}?brand=melissa_and_doug">Melissa & Doug</a></li>
                     <li><a class="dropdown-item" href="{% url 'products' %}?brand=stockmar">Stockmar</a></li>
@@ -23,14 +23,30 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Toys</a>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="{% url 'products' %}?category=preschool,role-play,dolls,doll_house" role="button" data-bs-toggle="dropdown" aria-expanded="false">Toys</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="{% url 'products' %}?category=preschool">Preschool</a></li>
                     <li><a class="dropdown-item" href="{% url 'products' %}?category=role-play">Role Play</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?category=books">Books</a></li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?category=art-and-craft">Arts & Crafts</a></li>
                     <li><a class="dropdown-item" href="{% url 'products' %}?category=dolls">Dolls</a></li>
                     <li><a class="dropdown-item" href="{% url 'products' %}?category=doll_house">Doll Houses</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="{% url 'products' %}?category=song-books,readers,food" role="button" data-bs-toggle="dropdown" aria-expanded="false">Books</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{% url 'products' %}?category=song-books">Song Books</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?category=readers">Story Books</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?category=food">Food & Celebration</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="{% url 'products' %}?category=crayons,craft-kit,paint" role="button" data-bs-toggle="dropdown" aria-expanded="false">Art & Craft</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="{% url 'products' %}?category=crayons">Crayons</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?category=craft-kit">Craft Kits</a></li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?category=paint">Paint Sets</a></li>
                 </ul>
             </li>
         </ul>
