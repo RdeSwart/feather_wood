@@ -20,10 +20,6 @@ header.masthead {
     
 }
 
-#shop-now {
-    margin-bottom: 2rem;
-}
-
 .navbar {
     flex-wrap: nowrap !important;
 }
@@ -43,9 +39,10 @@ header.masthead {
     border-color: #daa1d0;
 }
 
-a {
-    color: #815c7b;
-    text-decoration: underline;
+a.shop-now:hover {
+    background: #815c7b !important;
+    color: #fff !important;
+    border: #815c7b;
 }
  
 .icon {
@@ -58,6 +55,16 @@ a {
 
 .border-black {
     border: 1px solid #000 !important;
+}
+
+a.category-badge> span.badge:hover {
+    background: #815c7b !important;
+    color: #fff !important;
+}
+
+a.brand-badge> span.badge:hover {
+    background: #815c7b !important;
+    color: #fff !important;
 }
 
 /* --------------------------------------------------- Product detail page from Bootstrap Examples.com */
