@@ -1,1 +1,1 @@
-web: gunicorn feather_wood.wsgi:application
+web: gunicorn feather_and_wood.wsgi:application
