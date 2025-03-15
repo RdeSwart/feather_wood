@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<header class="masthead">
+    <div class="container">
+        <a id="shop-now" class="btn btn-primary btn-xl text-uppercase" href="{% url 'products' %}">Shop Now</a>
+    </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+<div class="container col-10 offset-1"></div>
+<div class="row">
+    <h4 class="col text-center mt-3"><strong>Feather and Wood's</strong>Story</h4>
+    <hr>
+    <p>Welcome to Feather and Wood—where play meets purpose. We are a passionate team dedicated to offering children’s
+        toys that inspire imagination, creativity, and development. Rooted in the philosophy of Waldorf Steiner, our
+        carefully curated collection is designed to nurture the whole child, fostering growth not just in play, but in
+        every stage of their journey.
+
+        At Feather and Wood, we believe that toys should do more than entertain. They should spark curiosity, build
+        essential skills, and support emotional, cognitive, and physical development. That's why we select every toy
+        with intention—creating an environment where children can explore, learn, and grow at their own pace.
+
+        We prioritise natural materials, sustainable practices, and a deep respect for the environment. Each product in
+        our collection is thoughtfully crafted to be safe, durable, and free from harmful chemicals—ensuring that your
+        child’s playtime is both joyful and secure.<br>
+
+        Our mission is simple: to provide toys that are as timeless as childhood itself. Whether it's a wooden puzzle, a
+        hand-stitched doll, or a colourful building block set, every item we offer is designed to connect children with
+        the world around them, using their hands, their imagination, and their hearts.<br>
+
+        Join us in celebrating the beauty of childhood through the lens of Waldorf education. At Feather and Wood, we
+        are proud to be a part of your child’s developmental journey, helping them grow, learn, and thrive.
+
+        Thank you for trusting us to be a part of your child’s playtime.</p>
+</div>
+</div>
+{% endblock %}
