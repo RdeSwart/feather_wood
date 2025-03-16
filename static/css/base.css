@@ -1,6 +1,6 @@
 body {
     color: #4b4848;
-    font-family: 'Saira';
+    font-family: 'Saira', sans-serif;
 }
 
 header.masthead {
@@ -8,7 +8,7 @@ header.masthead {
     padding-bottom: 6rem;
     text-align: center;
     color: #fff;
-    background-image: url("/media/main-image-bella.jpg");
+    background-image: url("/media/hero-image.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
@@ -16,8 +16,13 @@ header.masthead {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 100vh;  
     
+}
+
+.logo-font {
+    font-style: italic;
+    font-weight: bold;
+    color: #daa1d0;
 }
 
 .navbar {
@@ -116,6 +121,13 @@ a.brand-badge> span.badge:hover {
         flex-direction: column;
         align-items: center;
         padding: 0;
+    }
+
+}
+
+@media (min-width: 1025px) {
+    .logo-font {
+        font-size: 3rem;
     }
 }
 
