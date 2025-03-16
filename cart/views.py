@@ -5,7 +5,7 @@ def cart(request):
     """
     This view returns the Shopping Cart Page
     """
-    return render(request, 'cart/cart.html')
+    return render(request, 'cart.html')
 
 
 def add_to_cart(request, item_id):
@@ -21,5 +21,4 @@ def add_to_cart(request, item_id):
         cart[item_id] = quantity
 
     request.session['cart'] = cart
-    print(request.session['cart'])
     return redirect(redirect_url)

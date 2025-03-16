@@ -1,20 +1,21 @@
 from django.shortcuts import get_object_or_404
 from products.models import Product
+from decimal import Decimal
 
 
 def cart_contents(request):
 
     cart_items = []
-    total = 0
+    total = Decimal('0.00')
     product_count = 0
-    delivery = 6.99
+    delivery = Decimal('6.99')
     cart = request.session.get('cart', {})
 
     for item_id, item_data in cart.items():
 
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
-            total += item_data * product.price
+            total += Decimal(item_data) * product.rrp_price
             product_count += item_data
             cart_items.append({
                 'item_id': item_id,
@@ -24,7 +25,8 @@ def cart_contents(request):
 
         else:
             product = get_object_or_404(Product, pk=item_id)
-            total += quantity * product.price
+            quantity = item_data['quantity']
+            total += quantity * product.rrp_price
             product_count += quantity
             cart_items.append({
                 'item_id': item_id,
