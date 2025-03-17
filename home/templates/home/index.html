@@ -11,7 +11,7 @@
     
     
 {% block content %}
-<div class="container col-10 offset-1"></div>
+<div class="container col-10 offset-1">
     <div class="row">
         <h4 class="col text-center mt-3">Childhood Simplified with <strong>Feather and Wood</strong></h4>
         <hr>
@@ -22,17 +22,17 @@
                     <div class="card h-100">
                         <!-- Sale badge -->
                         {% if product.discount %}
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         {% endif %}
                         <!-- Product image -->
                         {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" />
-                        </a>
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" />
+                            </a>
                         {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" />
-                        </a>
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" />
+                            </a>
                         {% endif %}
                         <!-- Product details -->
                         <div class="card-body p-4">
@@ -47,7 +47,7 @@
                                     </p>
                                 {% endif %}
                                 {% if product.rating %}
-                                {{ product.get_star_rating|safe }}
+                                    {{ product.get_star_rating|safe }}
                                     <small class="text-muted"><i class="fas fa-star mr-1"></i> {{ product.rating }} </small><hr>
                                 {% else %}
                                     <small class="text-muted">No rating yet</small><hr>
@@ -67,23 +67,14 @@
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:2 %}
-                <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                    <hr>
-                </div>
-                {% endif %}
-                {% if forloop.counter|divisibleby:3 %}
-                    <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                        <hr>
-                    </div>
-                {% endif %}
                 {% if forloop.counter|divisibleby:4 %}
-                    <div class="col-12 d-none d-xl-block mb-5">
-                        <hr>
-                    </div>
+                    </div> <!-- End of row for 4 products -->
+                    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 {% endif %}
             {% endfor %}
         </div>
+        <hr> <!-- Optional HR after all products -->
     </div>
 </div>
+
 {% endblock %}
