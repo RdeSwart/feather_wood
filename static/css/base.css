@@ -93,7 +93,7 @@ a.brand-badge> span.badge:hover {
 /* --------------------------------------------------- Product detail page from Bootstrap Examples.com */
 .product-image {
     max-height: 250px;
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
 }
 .thumbnail {
@@ -109,11 +109,20 @@ a.brand-badge> span.badge:hover {
 }
 
 /* --------------------------------------------------- Media Queries */
+@media (min-width: 344px) {
+    .card-text {
+        font-size: 0.70rem;
+    }
+}
 
 @media (min-width: 768px) {
     header.masthead {
       padding-top: 17rem;
       padding-bottom: 12.5rem;
+    }
+
+    .card-text {
+        font-size: 1.25rem;
     }
 }
 

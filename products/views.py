@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
 from .models import Product, Category, Brand
 
 
-# Create your views here.
 def all_products(request):
     """
     This view returns a list of all products, including
@@ -17,7 +17,7 @@ def all_products(request):
     brands = None
     sort = None
     direction = None
-
+    
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -25,6 +25,11 @@ def all_products(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
+
+        if sortkey == 'price_asc':
+            sortkey = 'rrp_price'
+        elif sortkey == 'price_desc':
+            sortkey = '-rrp_price'
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
@@ -58,6 +63,7 @@ def all_products(request):
         'current_categories': categories,
         'current_brands': brands,
         'current_sorting': current_sorting,
+        
     }
     return render(request, 'products/products.html', context)
 
