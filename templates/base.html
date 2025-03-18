@@ -106,7 +106,7 @@
           <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
             <ul class="list-inline list-unstyled text-center text-lg-right my-0">
               <li class="list-inline-item dropdown">
-                <a class="text-black nav-link" href="#" data-toggle="dropdown" aria-haspopup="true"
+                <a class="text-black nav-link" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
                   <div class="text-center">
                     <div><i class="fas fa-user fa-lg"></i></div>
@@ -156,11 +156,22 @@
       </header>
           
       
-      
-
       {% if messages %}
-          <div class="message-container">   
-          </div>
+      <div class="message-container">
+          {% for message in messages %}
+              {% with message.level as level %}
+                  {% if level == 40 %}
+                      {% include 'includes/toasts/toasts_error.html' %}
+                  {% elif level == 30 %}
+                      {% include 'includes/toasts/toasts_warning.html' %}
+                  {% elif level == 25 %}
+                      {% include 'includes/toasts/toasts_success.html' %}
+                  {% else %}
+                      {% include 'includes/toasts/toasts_info.html' %}
+                  {% endif %}
+              {% endwith %}
+          {% endfor %}
+      </div>
       {% endif %}
 
       {% block page_header %}
@@ -170,6 +181,11 @@
       {% endblock %}
 
       {% block postloadjs %}
+      <script>
+        $(document).ready(function() {
+            $('.toast').toast('show');
+        });
+      </script>
       {% endblock %}
       <!-- Footer-->
       <footer class="py-5 bg-dark">
