@@ -5,9 +5,9 @@
     <head>
 
       {% block meta %}
-          <meta http-equiv="X-UA-compatible" content="ie=edge" />
-          <meta charset="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta http-equiv="X-UA-compatible" content="ie=edge">
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
       {% endblock %} 
       
 
@@ -25,10 +25,10 @@
         rel="stylesheet">
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
         <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="media/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
-        <link rel="manifest" href="media/favicon/site.webmanifest" crossorigin="use-credentials">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}" crossorigin="use-credentials">
       {% endblock %} 
       
       
@@ -37,9 +37,12 @@
       
       
       {% block corejs %}
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
       crossorigin="anonymous"></script>
+      
       <script src="https://kit.fontawesome.com/c977a6526e.js" crossorigin="anonymous"></script>
       {% endblock %} 
       
@@ -82,7 +85,7 @@
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
           <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
             <a href="{% url 'home' %}" class="nav-link main-logo-link">
-              <h2 class="logo-font my-0">Feather &amp Wood</h2>
+              <h2 class="logo-font my-0">Feather &amp; Wood</h2>
             </a>
           </div>
           <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -103,7 +106,7 @@
           <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
             <ul class="list-inline list-unstyled text-center text-lg-right my-0">
               <li class="list-inline-item dropdown">
-                <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
+                <a class="text-black nav-link" href="#" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
                   <div class="text-center">
                     <div><i class="fas fa-user fa-lg"></i></div>
@@ -143,8 +146,7 @@
         <div class="row bg-white">
           <!-- Navigation -->
           <nav class="navbar navbar-expand-lg navbar-light w-100">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
-              aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             {% include 'includes/mobile_top_header.html' %}
