@@ -10,19 +10,17 @@ class Product(models.Model):
     description = models.TextField()
     rrp_price = models.DecimalField(max_digits=6, decimal_places=2)
     discount = models.DecimalField(max_digits=6, decimal_places=2)
-    discounted_price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
-    sale_price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
     @property
     def discounted_price(self):
-        return round((self.rrp_price * self.discount) / Decimal(100), 2)
+        return round(self.rrp_price - self.discount, 2)
    
     @property
     def sale_price(self):
-        return round(self.rrp_price - self.discounted_price, 2)
+        return round(self.rrp_price - self.discount, 2)
 
     def __str__(self):
         return self.name
