@@ -17,6 +17,7 @@ def all_products(request):
     brands = None
     sort = None
     direction = None
+    sortkey = 'lower_name'
     
     if request.GET:
         if 'sort' in request.GET:
