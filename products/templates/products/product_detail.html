@@ -78,8 +78,12 @@
                             </span>
                             <span class="text-uppercase">Keep Shopping</span>
                         </a>
-                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Cart">
-                        <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Wishlist">
+                        <button type="submit" class="btn btn-black rounded-0 text-uppercase mt-5">
+                            <i class="fas fa-cart-shopping"></i> Add to Cart
+                        </button>
+                        <button type="submit" class="btn btn-black rounded-0 text-uppercase mt-5">
+                            <i class="fa-regular fa-heart"></i> Add to Wishlist
+                        </button>
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </form>
