@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<header class="masthead img-fluid">
+    <div class="container">
+        <a id="shop-now" class="btn btn-primary btn-xl text-uppercase" href="{% url 'products' %}">Shop Now</a>
+    </div>
+</header>
+    {% endblock %} 
+    
+    
+{% block content %}
+
+<div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">Shopping Cart</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p class="text-muted">Please fill out the form below to complete your order</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
