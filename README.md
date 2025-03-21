@@ -464,14 +464,20 @@ Features I didn't have time for or would like to implement in the future:
 
 Business Model;
 Marketing:
-To keep customers up to date with social media, Feather and Wood has a Facebook page, which is linked in the footer. Here, the site is updated daily with either stories or posts or both, some of which will ask for interaction with customers to keep them engaged and to keep our content relevant and consistently in the customers mind’s eye. You can view it here.
+To keep customers up to date with social media, Feather and Wood has a Facebook page, which is linked in the footer. Here, the site is updated daily with either stories or posts or both, some of which will ask for interaction with customers to keep them engaged and to keep our content relevant and consistently in the customers mind’s eye. 
+
+You can view it here:
 
 Customers can also signup to Feather and Woods Newsletter. This is done using MailChimp. You do not need to be a registered user to sign up. It is a simple, enter email address function, with a successful message display. 
+
 It is located near the footer here:
+
 ![Image of Newsletter Signup]()
 
 As part of social media inclusion, Feather and Wood created a Facebook Page in order to update customers everyday/week:
+
 ![Image of Facebook Page]()
+
 ![Image of Facebook Link in Footer]()
 
 
@@ -515,20 +521,22 @@ To deploy to Heroku, I used the following steps:
 Create a local copy of the remote repository on your machine:
 1. Go to the GitHub repository you want to clone.
 2. Click the "Code" button (green button on the top right of the repo page).
-3. Copy the URL (either HTTPS or SSH link). For example:
+3. Copy the URL (either HTTPS or SSH link). 
+
+For example:
+
 `HTTPS: https://github.com/username/repository-name.git`
+
 `SSH: git@github.com:username/repository-name.git (You’ll need SSH keys set up for this).`
+
 4. Open Terminal/Command Prompt
 5. Navigate to the Directory Where You Want to Clone
-6. Run the Git Clone Command
-   Use the following command, replacing the URL with the one you copied earlier:
+6. Use the following command, replacing the URL with the one you copied earlier:
 
-bash
-Copy
-git clone https://github.com/username/repository-name.git
-OR if using SSH:
 `git clone https://github.com/username/repository-name.git`
-If using SSH:
+
+OR if using SSH:
+
 `git clone git@github.com:username/repository-name.git`
 
 This will download the repo to your local machine.
@@ -549,4 +557,3 @@ If you want to contribute your changes to the original repository, you can creat
    as time was not on my side.
 2. OpenAi - ChatGpt for problem solving and further understanding when I couldn't find the answers elsewhere.
 3. Stack Overflow for problems that I searched for.
-4. 
