@@ -69,6 +69,10 @@
         window.addEventListener('scroll', checkVisibility);
       });
       </script>
+
+      <!-- carousel -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
       {% endblock %}
 
       <title>Feather and Wood {% block extra_title %}{% endblock %}</title>
@@ -76,10 +80,10 @@
 
     <body>
       <!-- Header -->
-      <header class="container-fluid fixed-top">
+      <header class="container-fluid">
         <div id="delivery-banner" class="row text-center text-white">
-          <div class="col bg-black text-black">
-            <h4 class="my-1">Free delivery on orders over €50</h4>
+          <div class="col">
+            <h4 class="my-1"><i class="fa-solid fa-truck-fast"></i> Next Day Delivery if ordered before 4pm</h4>
           </div>
         </div>
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
@@ -128,7 +132,7 @@
               </li>
               <li class="list-inline-item">
                 <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'cart' %}">
-                  <div class="text-center">
+                  <div class="text-center text-black">
                     <div><i class="fas fa-solid fa-cart-shopping fa-lg"></i></div>
                     <p class="my-0">
                       {% if grand_total %}
@@ -145,7 +149,7 @@
         </div>
         <div class="row bg-white">
           <!-- Navigation -->
-          <nav class="navbar navbar-expand-lg navbar-light w-100">
+          <nav class="navbar navbar-expand-lg w-100">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>

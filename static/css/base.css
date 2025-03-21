@@ -3,22 +3,6 @@ body {
     font-family: 'Saira', sans-serif;
 }
 
-header.masthead {
-    padding-top: 10.5rem;
-    padding-bottom: 6rem;
-    text-align: center;
-    color: #fff;
-    background-image: url("/media/hero-image.jpg");
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: center center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    
-}
-
 .logo-font {
     font-style: italic;
     font-weight: bold;
@@ -27,15 +11,20 @@ header.masthead {
 
 .navbar {
     flex-wrap: nowrap !important;
+    height: 80px;
 }
 
 .navbar-brand {
     font-size: 2rem;
 }
 
+.main-sort-header {
+    background-color: #b6afaf !important;
+    color: white !important;
+}
+
 #delivery-banner {
     background-color: #b6afaf;
-    color: #fff;
 }
 
 .btn-primary {
@@ -44,12 +33,6 @@ header.masthead {
     border-color: #daa1d0;
 }
 
-a.shop-now:hover {
-    background: #815c7b !important;
-    color: #fff !important;
-    border: #815c7b;
-}
- 
 .icon {
     color: #555 !important;
 }
@@ -76,6 +59,16 @@ a.brand-badge> span.badge:hover {
 .update-link,
 .remove-item {
     cursor: pointer;
+}
+
+.about {
+    padding-top: 80px;
+}
+
+.fa-seedling,
+.fa-heart {
+    color: #daa1d0 !important;
+    font-size: large;
 }
 
 /* --------------------------------------------------- Help from ChatGPT to write function for product cards */
@@ -231,4 +224,81 @@ a.brand-badge> span.badge:hover {
   .lottie-animation {
     max-width: 400px;
     margin-bottom: 2rem;
+  }
+
+/* --------------------------------------------------- Code from codepen.io  */
+  #carousel .carousel-item.craft {
+    background-image: url("/media/hero-art.jpg");
+  }
+  
+  #carousel .carousel-item.winner {
+    background-image: url("/media/winner.jpg");
+  }
+  
+  #carousel .carousel-item.gentle {
+    background-image: url("/media/gentle-play.jpg");
+  }
+  
+  #carousel .carousel-item {
+    height: 100vh;
+    width: 100%;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+  }
+  
+  #carousel .carousel-inner .carousel-item {
+    transition: -webkit-transform 2s ease;
+    transition: transform 2s ease;
+    transition: transform 2s ease, -webkit-transform 2s ease;
+  }
+  
+  #carousel .carousel-item .caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    color: white;
+    animation-duration: 1s;
+    animation-delay: 2s;
+  }
+  
+  #carousel .caption h2 {
+    animation-duration: 1s;
+    animation-delay: 2s;
+  }
+  
+  #carousel .caption p {
+    animation-duration: 1s;
+    animation-delay: 2.2s;
+  }
+  
+  #carousel .caption a {
+    animation-duration: 1s;
+    animation-delay: 2.4s;
+  }
+  
+  /* Button */
+  .delicious-btn {
+    display: inline-block;
+    min-width: 160px;
+    height: 60px;
+    color: #ffffff;
+    border: none;
+    border-left: 3px solid #daa1d0;
+    border-radius: 0;
+    padding: 0 30px;
+    font-size: 16px;
+    line-height: 58px;
+    font-weight: 600;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    text-transform: capitalize;
+    background-color: #daa1d0;
+  }
+  
+  .delicious-btn.active, .delicious-btn:hover, .delicious-btn:focus {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #b87dad;
+    border-color: #daa1d0;
   }
