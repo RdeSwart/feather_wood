@@ -4,7 +4,7 @@ Feather and Wood is a website that sells wooden, plush and STEM toys to those wh
 Alot of these customers follow or are curious about the Montessorri or Steiner teachings, which is ultimately teaching through play, giving space for the individual child's own imagination.
 
 ![Am I responsive image]()
-![Click here to view the live site]()
+![Click here to view the live site](https://feather-and-wood-c856568c8675.herokuapp.com)
 
 ## Table of Contents:
 
@@ -109,7 +109,7 @@ The Product Model object represents the products on sale, created by the SuperUs
 - name: Charfield
 - category: ForeignKey
 - brand: ForeignKey
-- price: DecimalField
+- rrp_price: DecimalField
 - sale_price: DecimalField
 - details: TextField
 - description: CharField
@@ -125,7 +125,7 @@ The Product Model object represents the products on sale, created by the SuperUs
 - default_phone_number: CharField
 - default_street_address1: CharField
 - default_street_address2: CharField
-- default_town_or_city: CharField
+- default_city: CharField
 - default_county: CharField
 - default_postcode: CharField
 - default_country: CountryField
@@ -140,7 +140,7 @@ The Product Model object represents the products on sale, created by the SuperUs
 - phone_number: CharField
 - street_address1: CharField
 - street_address2: CharField
-- town_or_city: CharField
+- city: CharField
 - county: CharField
 - postcode: CharField
 - country: CountryField
@@ -193,7 +193,7 @@ The Product Model object represents the products on sale, created by the SuperUs
 
 </details>
 
-#### Agile Methodology: THIS NEEDS MORE WORK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#### Agile Methodology:
 
 Adopting the Agile method for this project, I was able to break down the huge and overwhelming feat of the tasks it would take to get
 this project, not only off the ground but as an up and running working software solution!
@@ -205,7 +205,7 @@ Starting with basic User Stories, I was able to break these down into Epics and 
 
 Related to User Stories: #
 
-#####Sprint 1:
+##### Sprint 1:
 Create the site's basic structure and functionality
 
 Tasks:
@@ -219,20 +219,20 @@ Tasks:
 
 Related to User Stories: #
 
-#####Sprint 2:
+##### Sprint 2:
 Implement CRUD functionality and expand on website features
 
 Tasks:
 
 1. Implement CRUD for Admin on products, categories etc
-2. Create a shopping bag for adding, editing and removing items(order and OrderLineItem)
+2. Create a shopping cart for adding, editing and removing items(order and OrderLineItem)
 3. Install Stripe API to use for secure payments
 
 ##### <ins>Epic 3:</ins>
 
 Related to User Stories: #
 
-#####Sprint 3:
+##### Sprint 3:
 Focus on UX(User Experience) by adding extra features to the site
 
 Tasks:
@@ -246,7 +246,7 @@ Tasks:
 
 Related to User Stories: #
 
-#####Sprint 4:
+##### Sprint 4:
 Test all features manually, push final deploy and finish any documentation
 
 Tasks:
@@ -292,14 +292,14 @@ Tasks:
 
 </details>
 
-    * Hero Section
+    * Hero Section - Image Carousel
     <details><summary>Click to view Hero Section</summary>
 
     ![Image of Hero Section]()
 
     </details>
 
-    * Featured Products
+    * Featured Products Area - Products on Sale
     <details><summary>Click to view Featured Products</summary>
 
     ![Image of Featured Products]()
@@ -338,6 +338,7 @@ Tasks:
     </details>
 
 5. Product Details Page
+   This Page is rendered when a user clicks on a certain product in order to see a more detailed view of what the product is.
 <details><summary>Click to view Product Details Page</summary>
 
 ![Image of Product Details Page]()
@@ -389,8 +390,9 @@ Tasks:
 
 </details>
 
-9. Shopping Bag Page
+9. Shopping Cart Page
 <details><summary>Click to view Shopping Bag Page</summary>
+When a user chooses and item to buy, it will be added to the cart page. When the cart icon is clicked, the user will be brought to the cart page to see details of what they would like to buy, with product name, amount, individual cost and total.
 
 ![Image of User Shopping Bag Page]()
 
@@ -398,6 +400,7 @@ Tasks:
 
 10. Checkout Page
 <details><summary>Click to view Checkout Page</summary>
+When the customer decides they have finished shopping and would like to checkout their products, they will click on the checkout button. From here, they will brought to the checkout page, where they will enter their personal details, such as name, address, phone number etc.They will also enter their valid credit/debit card details securely using Stripe and click Pay Now button.
 
 ![Image of User Checkout Page]()
 
@@ -405,6 +408,7 @@ Tasks:
 
 11. Order Confirmation Page
 <details><summary>Click to view Order Confirmation Page</summary>
+When payment has been successful, an order confirmation page will display for the user. Here it will show details of the order and a message to say that an email will also be sent
 
 ![Image of Order Confirmation Page]()
 
@@ -419,20 +423,69 @@ Tasks:
 
 13. Administration Page Overview
 <details><summary>Click to view Administration Page Overview</summary>
+Functionality to add new products, new brands, edit or delete products/brands. They will have access to view order details such as customer name,address and phone number and what they ordered.
 
 ![Image of Administration Page Overview]()
 
 </details>
 
+14. Register/Login Pages
+<details><summary>Click to view Register and Login Pages</summary>
+Custom register and login pages are provided using django’s allauth system. The layout of the pages are simple, user-friendly and a bit more aesthetically pleasing than the default page that Django provides.
+
+![Image of Register Page]()
+![Image of Login Page]()
+
+</details>
+
+15. Sign Out Page
+<details><summary>Click to view Sign Out Page</summary>
+Custom sign out page, making logging out simple and user intuitive. A message will appear to confirm that user is logged out to give better piece of mind that their details are safe.
+
+![Image of Sign Out Page]()
+
+</details>
+
+16. My Profile Page
+<details><summary>Click to view My Profile Page</summary>
+This page will hold the customers past orders and delivery information, their wishlist and reviews will also be available to edit or delete here.
+
+![Image of Profile Page]()
+
+</details>
+
 ### Future Features:
+Features I didn't have time for or would like to implement in the future:
+1. Free Delivery over a certain amount
+2. Loyalty Card
+3. Pre-Order on items due in stock
 
 ## Marketing:
 
-## SEO:
+Business Model;
+Marketing:
+To keep customers up to date with social media, Feather and Wood has a Facebook page, which is linked in the footer. Here, the site is updated daily with either stories or posts or both, some of which will ask for interaction with customers to keep them engaged and to keep our content relevant and consistently in the customers mind’s eye. You can view it here.
+
+Customers can also signup to Feather and Woods Newsletter. This is done using MailChimp. You do not need to be a registered user to sign up. It is a simple, enter email address function, with a successful message display. 
+It is located near the footer here:
+![Image of Newsletter Signup]()
+
+As part of social media inclusion, Feather and Wood created a Facebook Page in order to update customers everyday/week:
+![Image of Facebook Page]()
+![Image of Facebook Link in Footer]()
+
+
+## SEO:Search Engine Optimisation:
+
+To help improve our SEO, I made a sitemap.xml and robots.txt file enhancing the site's crawlability, indexability, and relevance. As per advise, I avoided including duplicate, canonical, redirected, or blocked pages. I used the most-used words relating to Steiner and Waldorf education toys and toys in general to engage as many customers as possible.
+
 
 ## Testing:
+Please see ****testing docs url path here!!******** for details of testing
 
 ## Bugs:
+After connecting my Heroku app and AWS S3 Bucket for serving media and static files, the app stopped connecting.
+To fix this:
 
 ## Technologies and Languages:
 
@@ -480,8 +533,6 @@ If using SSH:
 
 This will download the repo to your local machine.
 
-
-
 ### Forking:
 Create your own copy of someone else’s repository under your GitHub account. 
 This is useful when you want to make changes or contribute to the original repository without affecting it directly.
@@ -492,4 +543,10 @@ GitHub will automatically create a copy of the repository under your GitHub acco
 3. Clone Your Forked Repo as above, to your local machine. Instead though use the URL of your forked repo(it will be https://github.com/your-username/repository-name.git)
 
 If you want to contribute your changes to the original repository, you can create a Pull Request from your fork to the original repository.
+
 ## Credits:
+1. I relied quite heavily on the Boutique Ado walkthrough project from Code Institute for this project
+   as time was not on my side.
+2. OpenAi - ChatGpt for problem solving and further understanding when I couldn't find the answers elsewhere.
+3. Stack Overflow for problems that I searched for.
+4. 
