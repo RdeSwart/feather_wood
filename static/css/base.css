@@ -9,6 +9,7 @@ body {
     color: #daa1d0;
 }
 
+
 .navbar {
     flex-wrap: nowrap !important;
     height: 80px;
@@ -67,7 +68,7 @@ a.brand-badge> span.badge:hover {
 
 .fa-seedling,
 .fa-heart {
-    color: #daa1d0 !important;
+    color: #daa1d0;
     font-size: large;
 }
 
