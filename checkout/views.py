@@ -50,7 +50,7 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success', args=[order.order_no]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
@@ -59,8 +59,7 @@ def checkout(request):
 
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(request, "Looks like you have nothing in \ "
-            "your cart at the moment")
+            messages.error(request, "Looks like you have nothing in your cart at the moment")
             return redirect(reverse('products'))
 
     current_cart = cart_contents(request)
@@ -87,14 +86,14 @@ def checkout(request):
     return render(request, template, context)
 
 
-def checkout_success(request, order_number):
+def checkout_success(request, order_no):
     """
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
-    order = get_object_or_404(Order, order_number=order_number)
+    order = get_object_or_404(Order, order_no=order_no)
     messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
+        Your order number is {order_no}. A confirmation \
         email will be sent to {order.email}.')
     
     if 'cart' in request.session:
