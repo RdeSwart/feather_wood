@@ -1,0 +1,12 @@
+.order_history {
+    max-height: 416px;
+    overflow-y: auto;
+}
+
+#profile-update-form .form-control {
+    color: #000;
+}
+
+#profile-update-form input::placeholder {
+    color: #815c7b;
+}

@@ -1,0 +1,359 @@
+body {
+    color: #4b4848;
+    font-family: 'Saira', sans-serif;
+}
+
+.logo-font {
+    font-style: italic;
+    font-weight: bold;
+    color: #daa1d0;
+}
+
+
+.navbar {
+    flex-wrap: nowrap !important;
+    height: 80px;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+}
+
+.main-sort-header {
+    background-color: #b6afaf !important;
+    color: white !important;
+}
+
+#delivery-banner {
+    background-color: #b6afaf;
+}
+
+.btn-primary {
+    color: #000;
+    background-color: #daa1d0;
+    border-color: #daa1d0;
+}
+
+.icon {
+    color: #555 !important;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid #000 !important;
+}
+
+a.category-badge> span.badge:hover {
+    background: #815c7b !important;
+    color: #fff !important;
+}
+
+a.brand-badge> span.badge:hover {
+    background: #815c7b !important;
+    color: #fff !important;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+.about {
+    padding-top: 80px;
+}
+
+.fa-seedling,
+.fa-heart {
+    color: #daa1d0;
+    font-size: large;
+}
+
+/* --------------------------------------------------- Help from ChatGPT to write function for product cards */
+.card {
+    opacity: 0;  
+    transform: translateY(20px);  
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+  }
+  
+  .card.visible {
+    opacity: 1;  
+    transform: translateY(0); 
+  }
+
+/* --------------------------------------------------- Product detail page from Bootstrap Examples.com */
+.product-image {
+    max-height: 250px;
+    object-fit: contain;
+    width: 100%;
+}
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+.thumbnail:hover, .thumbnail.active {
+    opacity: 1;
+}
+
+/* --------------------------------------------------- Bootstrap toasts from Boutique Ado */
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+/* --------------------------------------------------- Convenience classes - colours copied from Bootstrap */
+.arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* --------------------------------------------------- Allauth form formatting */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; /* mt-4 */
+    color: #6c757d; /* text-secondary */
+}
+
+.allauth-form-inner-content input {
+    border-color: #000;
+    border-radius: 0;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+	display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #000;
+    border: 1px solid #000;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+
+    /* standard bootstrap btn transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+	color: #fff;
+    background-color: #222;
+    border-color: #222;
+}
+
+.allauth-form-inner-content a {
+	color: #17a2b8; /* text-info */
+}
+
+/* --------------------------------------------------- Media Queries */
+@media (min-width: 344px) {
+    .card-text {
+        font-size: 0.70rem;
+    }
+}
+
+@media (min-width: 768px) {
+    header.masthead {
+      padding-top: 17rem;
+      padding-bottom: 12.5rem;
+    }
+
+    .card-text {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        justify-content: space-evenly;
+        padding-top: 2em;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+}
+
+@media (min-width: 1025px) {
+    .logo-font {
+        font-size: 3rem;
+    }
+}
+
+
+/* --------------------------------------------------- 404 Page  */
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+  }
+
+  .error-content {
+    text-align: center;
+  }
+
+  .error-content h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .error-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .lottie-animation {
+    max-width: 400px;
+    margin-bottom: 2rem;
+  }
+
+/* --------------------------------------------------- Code from codepen.io  */
+  #carousel .carousel-item.craft {
+    background-image: url("/media/hero-art.jpg");
+  }
+  
+  #carousel .carousel-item.winner {
+    background-image: url("/media/winner.jpg");
+  }
+  
+  #carousel .carousel-item.gentle {
+    background-image: url("/media/gentle-play.jpg");
+  }
+  
+  #carousel .carousel-item {
+    height: 100vh;
+    width: 100%;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+  }
+  
+  #carousel .carousel-inner .carousel-item {
+    transition: -webkit-transform 2s ease;
+    transition: transform 2s ease;
+    transition: transform 2s ease, -webkit-transform 2s ease;
+  }
+  
+  #carousel .carousel-item .caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    color: white;
+    animation-duration: 1s;
+    animation-delay: 2s;
+  }
+  
+  #carousel .caption h2 {
+    animation-duration: 1s;
+    animation-delay: 2s;
+  }
+  
+  #carousel .caption p {
+    animation-duration: 1s;
+    animation-delay: 2.2s;
+  }
+  
+  #carousel .caption a {
+    animation-duration: 1s;
+    animation-delay: 2.4s;
+  }
+  
+  /* Button */
+  .delicious-btn {
+    display: inline-block;
+    min-width: 160px;
+    height: 60px;
+    color: #ffffff;
+    border: none;
+    border-left: 3px solid #daa1d0;
+    border-radius: 0;
+    padding: 0 30px;
+    font-size: 16px;
+    line-height: 58px;
+    font-weight: 600;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    text-transform: capitalize;
+    background-color: #daa1d0;
+  }
+  
+  .delicious-btn.active, .delicious-btn:hover, .delicious-btn:focus {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #b87dad;
+    border-color: #daa1d0;
+  }
