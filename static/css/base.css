@@ -287,7 +287,7 @@ a.brand-badge> span.badge:hover {
   }
   
   #carousel .carousel-item.winner {
-    background-image: url("/media/winner.jpg");
+    background-image: url("/media/winner-resize.webp");
   }
   
   #carousel .carousel-item.gentle {
@@ -300,6 +300,7 @@ a.brand-badge> span.badge:hover {
     min-height: 350px;
     background: no-repeat center center scroll;
     background-size: cover;
+    object-fit: cover;
   }
   
   #carousel .carousel-inner .carousel-item {
