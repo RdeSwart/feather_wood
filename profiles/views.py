@@ -1,13 +1,18 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 
 from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
+from products.models import Wishlist
+
 
 
 def profile(request):
     """ Display the user's profile. """
+
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -30,6 +35,8 @@ def profile(request):
 
 
 def order_history(request, order_no):
+    """ Display the user's order history. """
+
     order = get_object_or_404(Order, order_no=order_no)
 
     messages.info(request, (
@@ -41,6 +48,31 @@ def order_history(request, order_no):
     context = {
         'order': order,
         'from_profile': True,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def profile(request):
+    """ Display the user's wishlist items. """
+
+    profile = get_object_or_404(UserProfile, user=request.user)
+    orders = profile.orders.all()
+    
+    try:
+        wishlist = Wishlist.objects.get(user=request.user)
+        wishlist_items = wishlist.products.all()
+    except Wishlist.DoesNotExist:
+        wishlist_items = []
+
+    form = UserProfileForm(instance=profile)
+    
+    template = 'profiles/profile.html'
+    context = {
+        'form': form,
+        'orders': orders,
+        'wishlist_items': wishlist_items,
     }
 
     return render(request, template, context)

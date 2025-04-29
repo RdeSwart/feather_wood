@@ -71,4 +71,31 @@
             </div>
         </div>
     </div>
+    <div class="row mt-5">
+        <div class="col">
+            <p class="text-muted">My Wishlist</p>
+            {% if wishlist_items %}
+                <div class="row">
+                    {% for product in wishlist_items %}
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card h-100 border-0">
+                                <a href="{% url 'product_detail' product.id %}">
+                                    <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
+                                </a>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <p class="card-text">${{ product.price }}</p>
+                                    <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary btn-sm">
+                                        View Product
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>You have no items in your wishlist.</p>
+            {% endif %}
+        </div>
+    </div>    
 {% endblock %}
