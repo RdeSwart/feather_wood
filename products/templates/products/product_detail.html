@@ -76,15 +76,15 @@
                         <button type="submit" class="btn btn-primary rounded-0 text-uppercase mt-5">
                             <i class="fas fa-cart-shopping"></i> Add to Cart
                         </button>
-                        <form action="{% url 'add_to_wishlist' product.id %}" method="POST">
-                            {% csrf_token %}
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                            <button type="submit" class="btn btn-primary rounded-0 text-uppercase mt-5">
-                                <i class="fa-regular fa-heart text-black"></i> Add to Wishlist
-                            </button>
-                        </form>
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </form>
+            <form action="{% url 'add_to_wishlist' product.id %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                <button type="submit" class="btn btn-primary rounded-0 text-uppercase mt-5">
+                    <i class="fa-regular fa-heart text-black"></i> Add to Wishlist
+                </button>
             </form>
         </div>
     </div>
