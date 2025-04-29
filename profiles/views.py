@@ -6,8 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
-from products.models import Wishlist
-
+from products.models import WishlistItem
 
 
 def profile(request):
@@ -54,16 +53,16 @@ def order_history(request, order_no):
 
 
 @login_required
-def profile(request):
+def user_wishlist_view(request):
     """ Display the user's wishlist items. """
 
     profile = get_object_or_404(UserProfile, user=request.user)
     orders = profile.orders.all()
     
     try:
-        wishlist = Wishlist.objects.get(user=request.user)
+        wishlist = WishlistItem.objects.get(user=request.user)
         wishlist_items = wishlist.products.all()
-    except Wishlist.DoesNotExist:
+    except WishlistItem.DoesNotExist:
         wishlist_items = []
 
     form = UserProfileForm(instance=profile)
