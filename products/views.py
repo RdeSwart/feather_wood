@@ -19,7 +19,6 @@ def all_products(request):
     sort = None
     direction = None
     sortkey = 'lower_name'
-    
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -52,10 +51,17 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "Oops! You need to type something to search for it!")
+                messages.error(
+                    request,
+                    "Oops! You need to type something to search for it!"
+                )
                 return redirect(reverse('products'))
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
-            products = products.filter(queries)
+
+    queries = (
+        Q(name__icontains=query) |
+        Q(description__icontains=query)
+    )
+    products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
 
@@ -65,7 +71,6 @@ def all_products(request):
         'current_categories': categories,
         'current_brands': brands,
         'current_sorting': current_sorting,
-        
     }
     return render(request, 'products/products.html', context)
 
@@ -111,11 +116,13 @@ def remove_from_wishlist(request, product_id):
     Removes a product from the user's wishlist.
     """
     product = get_object_or_404(Product, pk=product_id)
-    wishlist_item = WishlistItem.objects.filter(user=request.user, product=product).first()
+    wishlist_item = WishlistItem.objects.filter(user=request.user,
+                                                product=product).first()
 
     if wishlist_item:
         wishlist_item.delete()
-        messages.success(request, f"{product.name} removed from your wishlist.")
+        messages.success(request,
+                         f"{product.name} removed from your wishlist.")
     else:
         messages.info(request, f"{product.name} was not in your wishlist.")
 

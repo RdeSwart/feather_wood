@@ -27,9 +27,9 @@ def profile(request):
     context = {
         'form': form,
         'orders': orders,
-        'on_profile_page': True       
+        'on_profile_page': True
     }
- 
+
     return render(request, template, context)
 
 
@@ -55,7 +55,6 @@ def order_history(request, order_no):
 @login_required
 def user_wishlist_view(request):
     """ Display the user's wishlist items. """
-    
     profile = get_object_or_404(UserProfile, user=request.user)
     orders = profile.orders.all()
 
