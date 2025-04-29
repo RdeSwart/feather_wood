@@ -55,18 +55,15 @@ def order_history(request, order_no):
 @login_required
 def user_wishlist_view(request):
     """ Display the user's wishlist items. """
-
+    
     profile = get_object_or_404(UserProfile, user=request.user)
     orders = profile.orders.all()
-    
-    try:
-        wishlist = WishlistItem.objects.get(user=request.user)
-        wishlist_items = wishlist.products.all()
-    except WishlistItem.DoesNotExist:
-        wishlist_items = []
+
+    # Instead of .get(), use .filter() to get all individual wishlist items
+    wishlist_items = WishlistItem.objects.filter(user=request.user)
 
     form = UserProfileForm(instance=profile)
-    
+
     template = 'profiles/profile.html'
     context = {
         'form': form,

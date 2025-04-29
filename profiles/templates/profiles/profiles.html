@@ -71,31 +71,28 @@
             </div>
         </div>
     </div>
-    <div class="row mt-5">
-        <div class="col">
-            <p class="text-muted">My Wishlist</p>
-            {% if wishlist_items %}
-                <div class="row">
-                    {% for product in wishlist_items %}
-                        <div class="col-12 col-md-6 col-lg-4 mb-4">
-                            <div class="card h-100 border-0">
-                                <a href="{% url 'product_detail' product.id %}">
-                                    <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="{{ product.name }}">
-                                </a>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">{{ product.name }}</h5>
-                                    <p class="card-text">${{ product.price }}</p>
-                                    <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary btn-sm">
-                                        View Product
-                                    </a>
-                                </div>
-                            </div>
+    <div class="col-12 mt-5">
+        <h5 class="text-muted">My Wishlist</h5>
+        {% if wishlist_items %}
+            <ul class="list-group">
+                {% for item in wishlist_items %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ item.product.name }}
+                        <div>
+                            <a href="{% url 'product_detail' item.product.id %}" class="btn btn-sm btn-outline-primary">View</a>
+    
+                            <form method="POST" action="{% url 'remove_from_wishlist' item.product.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="redirect_url" value="{% url 'profile' %}">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Remove</button>
+                            </form>
                         </div>
-                    {% endfor %}
-                </div>
-            {% else %}
-                <p>You have no items in your wishlist.</p>
-            {% endif %}
-        </div>
-    </div>    
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You have no items in your wishlist yet.</p>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

@@ -103,3 +103,21 @@ def add_to_wishlist(request, product_id):
         messages.info(request, f"{product.name} is already in your wishlist.")
 
     return redirect(redirect_url)
+
+
+@login_required
+def remove_from_wishlist(request, product_id):
+    """
+    Removes a product from the user's wishlist.
+    """
+    product = get_object_or_404(Product, pk=product_id)
+    wishlist_item = WishlistItem.objects.filter(user=request.user, product=product).first()
+
+    if wishlist_item:
+        wishlist_item.delete()
+        messages.success(request, f"{product.name} removed from your wishlist.")
+    else:
+        messages.info(request, f"{product.name} was not in your wishlist.")
+
+    redirect_url = request.POST.get('redirect_url', '/profile/')
+    return redirect(redirect_url)
