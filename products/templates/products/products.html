@@ -95,6 +95,20 @@
                                 {% else %}
                                     €{{ product.rrp_price }}
                                 {% endif %}
+                                <!-- Wishlist -->
+                                <form action="{% url 'add_to_wishlist' product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                                    {% if user.is_authenticated and product in user.userprofile.wishlist.all %}
+                                        <button type="submit" class="btn btn-link p-0" title="In Wishlist">
+                                            <i class="fas fa-heart text-black"></i>
+                                        </button>
+                                    {% else %}
+                                        <button type="submit" class="btn btn-link p-0" title="Add to Wishlist">
+                                            <i class="far fa-heart text-muted"></i>
+                                        </button>
+                                    {% endif %}
+                                </form>                                
                             </div>
                         </div>
                         <!-- Product actions -->
