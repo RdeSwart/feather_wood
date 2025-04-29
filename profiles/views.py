@@ -63,7 +63,7 @@ def user_wishlist_view(request):
 
     form = UserProfileForm(instance=profile)
 
-    template = 'profiles/profile.html'
+    template = 'profiles/profiles.html'
     context = {
         'form': form,
         'orders': orders,
