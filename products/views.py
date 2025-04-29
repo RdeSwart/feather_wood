@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category, Brand
+from .models import Product, Category, Brand, WishlistItem
+from django.contrib.auth.decorators import login_required
 
 
 def all_products(request):
@@ -80,3 +81,25 @@ def product_detail(request, product_id):
         'product': product,
     }
     return render(request, 'products/product_detail.html', context)
+
+
+@login_required
+def add_to_wishlist(request, product_id):
+    """
+    This view returns wishlist items
+    """
+
+    product = get_object_or_404(Product, pk=product_id)
+    redirect_url = request.POST.get('redirect_url', '/')
+
+    wishlist_item, created = WishlistItem.objects.get_or_create(
+        user=request.user,
+        product=product
+    )
+
+    if created:
+        messages.success(request, f"{product.name} added to your wishlist.")
+    else:
+        messages.info(request, f"{product.name} is already in your wishlist.")
+
+    return redirect(redirect_url)
