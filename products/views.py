@@ -57,11 +57,11 @@ def all_products(request):
                 )
                 return redirect(reverse('products'))
 
-        queries = (
-            Q(name__icontains=query) |
-            Q(description__icontains=query)
-        )
-        products = products.filter(queries)
+            queries = (
+                Q(name__icontains=query) |
+                Q(description__icontains=query)
+            )
+            products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
 
