@@ -41,14 +41,51 @@ card.addEventListener('change', function (event) {
 });
 
 // Handle form submit
+// var form = document.getElementById("payment-form");
+
+// form.addEventListener("submit", function(ev) {
+//     ev.preventDefault();
+//     card.update({ 'disabled': true});
+//     $('#submit-button').attr("disabled", true);
+//     $('#payment-form').fadeToggle(100);
+//     $('#loading-overlay').fadeToggle(100);
+//     stripe.confirmCardPayment(clientSecret, {
+//         payment_method: {
+//             card: card,
+//         }
+//     }).then(function(result) {
+//         if (result.error) {
+//             var errorDiv = document.getElementById("card-errors");
+//             var html = `
+//                 <span class="icon" role="alert">
+//                 <i class="fas fa-times"></i>
+//                 </span>
+//                 <span>${result.error.message}</span>`;
+//             $(errorDiv).html(html);
+//             $('#payment-form').fadeToggle(100);
+//             $('#loading-overlay').fadeToggle(100);
+//             card.update({ "disabled": false});
+//             $('#submit-button').attr("disabled", false);
+//         } else {
+//             if (result.paymentIntent.status === "succeeded") {
+//                 form.submit();
+//             }
+//         }
+//     });
+// });
+
+// Handle form submit
 var form = document.getElementById("payment-form");
 
 form.addEventListener("submit", function(ev) {
     ev.preventDefault();
-    card.update({ 'disabled': true});
-    $('#submit-button').attr("disabled", true);
-    $('#payment-form').fadeToggle(100);
-    $('#loading-overlay').fadeToggle(100);
+    card.update({ 'disabled': true }); // Disable the card field
+    $('#submit-button').attr("disabled", true); // Disable the submit button
+
+    // Show the loading spinner and hide the payment form
+    $('#payment-form').fadeOut(100);
+    $('#loading-overlay').fadeIn(100);
+
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
@@ -58,23 +95,18 @@ form.addEventListener("submit", function(ev) {
             var errorDiv = document.getElementById("card-errors");
             var html = `
                 <span class="icon" role="alert">
-                <i class="fas fa-times"></i>
+                    <i class="fas fa-times"></i>
                 </span>
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
-            $('#payment-form').fadeToggle(100);
-            $('#loading-overlay').fadeToggle(100);
-            card.update({ "disabled": false});
-            $('#submit-button').attr("disabled", false);
+            $('#payment-form').fadeIn(100); // Show the form again
+            $('#loading-overlay').fadeOut(100); // Hide the spinner
+            card.update({ "disabled": false }); // Re-enable the card field
+            $('#submit-button').attr("disabled", false); // Re-enable the submit button
         } else {
             if (result.paymentIntent.status === "succeeded") {
-                form.submit();
+                form.submit(); // Submit the form when payment is successful
             }
         }
     });
-});
-
-// Show spinner icon when checking out
-$('#checkout-button').click(function() {
-    $('#loading-spinner').show();
 });
