@@ -75,20 +75,29 @@ card.addEventListener('change', function (event) {
 // });
 
 // Handle form submit
-var form = document.getElementById("payment-form");
-
 form.addEventListener("submit", function(ev) {
     ev.preventDefault();
-    card.update({ 'disabled': true }); // Disable the card field
-    $('#submit-button').attr("disabled", true); // Disable the submit button
+    card.update({ 'disabled': true }); 
+    $('#submit-button').attr("disabled", true);
 
-    // Show the loading spinner and hide the payment form
     $('#payment-form').fadeOut(100);
     $('#loading-overlay').fadeIn(100);
 
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
+            billing_details: {
+                name: $.trim(form.full_name.value),
+                email: $.trim(form.email.value),
+                address: {
+                    line1: $.trim(form.street_address1.value),
+                    line2: $.trim(form.street_address2.value),
+                    city: $.trim(form.city.value),
+                    state: $.trim(form.county.value),
+                    country: $.trim(form.country.value),
+                    postal_code: $.trim(form.postcode.value),
+                }
+            }
         }
     }).then(function(result) {
         if (result.error) {
@@ -99,13 +108,13 @@ form.addEventListener("submit", function(ev) {
                 </span>
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
-            $('#payment-form').fadeIn(100); // Show the form again
-            $('#loading-overlay').fadeOut(100); // Hide the spinner
-            card.update({ "disabled": false }); // Re-enable the card field
-            $('#submit-button').attr("disabled", false); // Re-enable the submit button
+            $('#payment-form').fadeIn(100); 
+            $('#loading-overlay').fadeOut(100); 
+            card.update({ "disabled": false }); 
+            $('#submit-button').attr("disabled", false); 
         } else {
             if (result.paymentIntent.status === "succeeded") {
-                form.submit(); // Submit the form when payment is successful
+                form.submit(); 
             }
         }
     });
