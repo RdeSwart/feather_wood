@@ -73,3 +73,8 @@ form.addEventListener("submit", function(ev) {
         }
     });
 });
+
+// Show spinner icon when checking out
+$('#checkout-button').click(function() {
+    $('#loading-spinner').show();
+});
