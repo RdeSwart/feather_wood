@@ -212,6 +212,18 @@ a.brand-badge> span.badge:hover {
 	color: #17a2b8; /* text-info */
 }
 
+/* --------------------------------------------------- Loading Spinner on Cart Page */
+#loading-spinner {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    pointer-events: none;
+}
+
+
 /* --------------------------------------------------- Media Queries */
 @media (min-width: 344px) {
     .card-text {

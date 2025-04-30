@@ -95,7 +95,7 @@
                                         </span>
                                         <span class="text-uppercase">Keep Shopping</span>
                                     </a>
-                                    <a href="{% url 'checkout' %}" class="btn btn-primary rounded-0 btn-lg">
+                                    <a href="{% url 'checkout' %}" class="btn btn-primary rounded-0 btn-lg" id="checkout-button">
                                         <span class="text-uppercase">Secure Checkout</span>
                                         <span class="icon">
                                             <i class="fas fa-lock"></i>
@@ -145,5 +145,10 @@
              location.reload();
          });
     })
+
+    // Show spinner icon when checking out
+    $('#checkout-button').click(function() {
+        $('#loading-spinner').show();
+    });
 </script>
 {% endblock %}
