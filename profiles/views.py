@@ -15,7 +15,6 @@ def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
     wishlist_items = WishlistItem.objects.filter(user=request.user)
 
-
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
