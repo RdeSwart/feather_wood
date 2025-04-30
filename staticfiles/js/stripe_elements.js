@@ -83,6 +83,19 @@ form.addEventListener("submit", function(ev) {
     $('#payment-form').fadeOut(100);
     $('#loading-overlay').fadeIn(100);
 
+    console.log("Billing Details", {
+        name: $.trim(form.full_name.value),
+        email: $.trim(form.email.value),
+        address: {
+            line1: $.trim(form.street_address1.value),
+            line2: $.trim(form.street_address2.value),
+            city: $.trim(form.city.value),
+            state: $.trim(form.county.value),
+            country: $.trim(form.country.value),
+            postal_code: $.trim(form.postcode.value),
+        }
+    });
+
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
