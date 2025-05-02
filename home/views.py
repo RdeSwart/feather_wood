@@ -21,6 +21,7 @@ def about(request):
     """
     return render(request, 'about.html', {})
 
+
 def contact(request):
     """
     This view returns the Contact Us Page
