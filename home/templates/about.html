@@ -1,39 +1,51 @@
 {% extends "base.html" %}
 {% load static %}
 
-
 {% block content %}
   <div class="about container py-5">
     <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
       <div class="col-12 col-lg-6 col-xl-5">
-        <img class="img-fluid rounded" loading="lazy" src="media/logo.jpg" alt="About Page">
+        <img class="img-fluid rounded" loading="lazy" src="{% static 'images/logo.jpg' %}" alt="About Page">
       </div>
       <div class="col-12 col-lg-6 col-xl-7">
         <div class="row justify-content-xl-center">
           <div class="col-12 col-xl-11">
             <h2 class="mb-3">Who Are We?</h2>
-            <p class="lead fs-6 text-secondary mb-3">Welcome to Feather and Wood—where play meets purpose.</p>
-            <p class="mb-5">At Feather and Wood, we believe that toys should do more than entertain...</p>
-            <div class="row gy-4 gy-md-0 gx-xxl-5X">
+            <p class="lead fs-6 text-secondary mb-3">Welcome to Feather and Wood — where play meets purpose.</p>
+            <p class="mb-5">At Feather and Wood, we believe that toys should do more than entertain; they should inspire, educate, and foster growth. 
+              We are passionate about providing children with tools that encourage creativity, curiosity, and learning through play. 
+              Our carefully curated collection features toys that align with the principles of Steiner, Waldorf, Montessori, and STEM education, promoting natural, hands-on exploration.</p>
+            <div class="row gy-4 gy-md-0 gx-xxl-5">
               <div class="col-12 col-md-6">
                 <div class="d-flex">
                   <div class="me-4 text-primary">
-                    <i class="fas fa-solid fa-seedling"></i>
+                    <i class="fas fa-seedling"></i>
                   </div>
                   <div>
                     <h2 class="h4 mb-3">Environment</h2>
-                    <p class="text-secondary mb-0">We prioritise natural materials, sustainable practices...</p>
+                    <p class="text-secondary mb-0">We prioritise natural materials, sustainable practices, and ethical production.</p>
+                    <p class="text-secondary mb-0">At Feather and Wood, we believe that the foundation of a great toy starts with the materials it's made from. 
+                      That's why we carefully select natural, eco-friendly materials that are safe for both your child and the environment. 
+                      From sustainably sourced wood to organic cotton and plant-based dyes, we ensure that every product reflects our commitment to sustainability.</p>
+                    <p class="text-secondary mb-0">Our toys are crafted with quality craftsmanship in mind, designed to last for generations. 
+                      We choose materials that are not only beautiful and tactile but also environmentally responsible. 
+                      By working with artisans and manufacturers who share our values, we are able to offer products that have a positive impact on the world around us.</p>
                   </div>
                 </div>
               </div>
               <div class="col-12 col-md-6">
                 <div class="d-flex">
                   <div class="me-4 text-primary">
-                    <i class="fas fa-solid fa-heart"></i>
+                    <i class="fas fa-heart"></i>
                   </div>
                   <div>
                     <h2 class="h4 mb-3">Our Mission</h2>
-                    <p class="text-secondary mb-0">Our mission is simple: to provide toys that are as timeless...</p>
+                    <p class="text-secondary mb-0">Our mission is simple: to provide toys that are as timeless as they are purposeful.</p>
+                    <p class="text-secondary mb-0">At Feather and Wood, we believe in the power of play to nurture a child’s imagination and development in ways that extend far beyond the moment. 
+                      Our toys are designed to be more than just playthings; they are tools for growth that inspire creativity, foster learning, and encourage hands-on exploration.</p>
+                    <p class="text-secondary mb-0">We want every toy you bring home to be built to last, both in terms of quality and relevance. 
+                      We carefully choose each product to offer endless opportunities for growth and learning, adapting to a child’s changing needs and developmental stages. 
+                      Whether it’s a wooden block set, a puzzle, or a craft kit, we ensure that every item sparks a sense of wonder and encourages children to engage with the world in a meaningful way.</p>
                   </div>
                 </div>
               </div>
