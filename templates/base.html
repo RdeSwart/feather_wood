@@ -194,8 +194,83 @@
       </script>
       {% endblock %}
       <!-- Footer-->
-      <footer class="py-5 bg-dark">
+      <!-- <footer class="py-5 bg-dark">
         <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Feather and Wood 2025</p></div>
+    </footer> -->
+    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4">
+      
+      <div class="container p-4">
+        
+        <div class="row">
+          
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <h5 class="text-uppercase mb-4">FEATHER AND WOOD</h5>
+  
+            <ul class="list-unstyled mb-4">
+              <li>
+                <a href="{% url 'about' %}" class="text-white nav-link">About us</a>
+              </li>
+              <li>
+                <a href='https://theeducationhub.org.nz/the-steiner-approach/' target='_blank' rel='noreferrer' class="text-white">The Teachings of Rudolf Steiner</a>
+              </li>
+              <li>
+                <a href='https://www.hatching-dragons.com/en-gb/blog/understanding-methods-of-nursery-education-a-parents-guide#:~:text=The%20Waldorf%20Method%3A%20Embracing%20Imagination&text=It%20seeks%20to%20balance%20intellectual,a%20predictable%20and%20comforting%20routine.' 
+                target='_blank' rel='noreferrer' class="text-white">Parents Guide to Child's Play</a>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <h5 class="text-uppercase mb-4">Assistance</h5>
+  
+            <ul class="list-unstyled">
+              <li>
+                <a href="{% url 'contact' %}" class="text-white">Contact us</a>
+              </li>
+              <li>
+                <a href="#shipping" class="text-white">Shipping Information</a>
+              </li>
+              <li>
+                <a href="#returns" class="text-white">Returns & Exchanges</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <h5 class="text-uppercase mb-4">Follow Us</h5>
+  
+            <div class="mt-4">
+              
+              <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-facebook-f"></i></a>
+              
+              <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-twitter"></i></a>
+              
+              <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-instagram"></i></a>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <h5 class="text-uppercase mb-4">Sign up to our newsletter</h5>
+  
+            <div class="form-outline form-white mb-4">
+              <input type="email" id="form5Example2" class="form-control" />
+              <label class="form-label" for="form5Example2">Email address</label>
+            </div>
+  
+            <button type="submit" class="btn btn-outline-white btn-block">Subscribe</button>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+      <div class="text-center p-3 border-top border-white">
+        Copyright &copy; Feather and Wood 2025
+      </div>
+      
     </footer>
   </body>
 </html>
