@@ -187,12 +187,15 @@
       {% endblock %}
 
       {% block postloadjs %}
-      <script>
-        $(document).ready(function() {
-            $('.toast').toast('show');
+        <script>
+          $(document).ready(function() {
+            $('.toast').toast('show'); 
+            $('.toast .close-btn').on('click', function() {
+            $(this).closest('.toast').remove();
+          });
         });
       </script>
-      {% endblock %}
+    {% endblock %}
       <!-- Footer-->
       <footer class="py-5 bg-dark">
         <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Feather and Wood 2025</p></div>
