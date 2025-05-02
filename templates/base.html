@@ -196,11 +196,8 @@
         });
       </script>
     {% endblock %}
-      <!-- Footer-->
-      <!-- <footer class="py-5 bg-dark">
-        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Feather and Wood 2025</p></div>
-    </footer> -->
-    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4">
+   
+    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4 bg-dark">
       
       <div class="container p-4">
         
@@ -231,10 +228,10 @@
                 <a href="{% url 'contact' %}" class="text-white">Contact us</a>
               </li>
               <li>
-                <a href="#shipping" class="text-white">Shipping Information</a>
+                <a href="{% url 'about' %}#shipping" class="text-white">Shipping Information</a>
               </li>
               <li>
-                <a href="#returns" class="text-white">Returns & Exchanges</a>
+                <a href="{% url 'about' %}#returns" class="text-white">Returns & Exchanges</a>
               </li>
             </ul>
           </div>
@@ -246,11 +243,17 @@
   
             <div class="mt-4">
               
-              <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.facebook.com/profile.php?id=61574163059661" 
+              target='_blank' rel='noopener noreferrer' type="button" 
+              class="btn btn-floating btn-light btn-lg"><i class="fab fa-facebook-f"></i></a>
               
-              <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-twitter"></i></a>
+              <a href="https://bsky.app/" 
+              target='_blank' rel='noopener noreferrer'
+              type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-twitter"></i></a>
               
-              <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.instagram.com/" 
+              target='_blank' rel='noopener noreferrer'
+              type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-instagram"></i></a>
               
             </div>
           </div>
@@ -263,7 +266,7 @@
               <label class="form-label" for="form5Example2">Email address</label>
             </div>
   
-            <button type="submit" class="btn btn-outline-white btn-block">Subscribe</button>
+            <button type="submit" class="btn-primary btn btn-outline-white btn-block">Subscribe</button>
           </div>
           
         </div>

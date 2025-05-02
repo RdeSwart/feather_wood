@@ -34,6 +34,11 @@ body {
     border-color: #daa1d0;
 }
 
+.wish-list {
+    padding: 0 25px 5px 25px;
+    font-size: 2rem;
+}
+
 .icon {
     color: #555 !important;
 }
@@ -238,6 +243,7 @@ a.brand-badge> span.badge:hover {
     background: #daa1d0;
     color: #140b0b;
     border-radius: 0px;
+    padding-top: 3rem;
     }
     .jumbotron-sm { padding-top: 24px;
     padding-bottom: 24px; }
