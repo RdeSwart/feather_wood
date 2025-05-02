@@ -72,7 +72,9 @@ a.brand-badge> span.badge:hover {
 }
 
 .fa-seedling,
-.fa-heart {
+.fa-heart,
+.fa-truck,
+.fa-rotate-left {
     color: #daa1d0;
     font-size: large;
 }
@@ -238,21 +240,20 @@ a.brand-badge> span.badge:hover {
 }
 
 
-/* --------------------------------------------------- Contact Page Bootsnipp.com */
-.jumbotron {
-    background: #daa1d0;
-    color: #140b0b;
-    border-radius: 0px;
-    padding-top: 3rem;
-    }
-    .jumbotron-sm { padding-top: 24px;
-    padding-bottom: 24px; }
-    .jumbotron small {
-    color: #140b0b;
-    }
-    .h1 small {
-    font-size: 24px;
-    }
+/* --------------------------------------------------- Contact Page */
+.custom-jumbotron {
+    color: #daa1d0;
+    background-color: #daa1d048;
+    border-radius: 0;
+}
+
+.custom-jumbotron small {
+    color: #daa1d0;
+}
+
+h1.display-5 small {
+    font-size: 1.25rem;
+}
 
 /* --------------------------------------------------- Media Queries */
 @media (min-width: 344px) {
