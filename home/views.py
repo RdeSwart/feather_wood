@@ -20,3 +20,9 @@ def about(request):
     This view returns the About Page
     """
     return render(request, 'about.html', {})
+
+def contact(request):
+    """
+    This view returns the Contact Us Page
+    """
+    return render(request, 'contact.html', {})

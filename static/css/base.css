@@ -232,6 +232,22 @@ a.brand-badge> span.badge:hover {
     color: white;
 }
 
+
+/* --------------------------------------------------- Contact Page Bootsnipp.com */
+.jumbotron {
+    background: #daa1d0;
+    color: #140b0b;
+    border-radius: 0px;
+    }
+    .jumbotron-sm { padding-top: 24px;
+    padding-bottom: 24px; }
+    .jumbotron small {
+    color: #140b0b;
+    }
+    .h1 small {
+    font-size: 24px;
+    }
+
 /* --------------------------------------------------- Media Queries */
 @media (min-width: 344px) {
     .card-text {
@@ -241,8 +257,8 @@ a.brand-badge> span.badge:hover {
 
 @media (min-width: 768px) {
     header.masthead {
-      padding-top: 17rem;
-      padding-bottom: 12.5rem;
+      padding-top: 3rem;
+      padding-bottom: 2.5rem;
     }
 
     .card-text {
@@ -315,9 +331,8 @@ a.brand-badge> span.badge:hover {
   }
   
   #carousel .carousel-item {
-    height: 100vh;
     width: 100%;
-    min-height: 350px;
+    min-height: 320px;
     background: no-repeat center center scroll;
     background-size: cover;
     object-fit: cover;
