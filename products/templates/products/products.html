@@ -101,11 +101,11 @@
                                     <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
                                     {% if user.is_authenticated and product in user.userprofile.wishlist.all %}
                                         <button type="submit" class="btn btn-link p-0" title="In Wishlist">
-                                            <i class="fas fa-heart text-black">In your Wishlist</i>
+                                            <i class="fa-solid fa-heart wishlist text-black">In your Wishlist</i>
                                         </button>
                                     {% else %}
                                         <button type="submit" class="btn btn-link p-0" title="Add to Wishlist">
-                                            <i class="far fa-heart text-muted">Add to Wishlist</i>
+                                            <i class="fa-regular fa-heart wishlist text-black">Add to Wishlist</i>
                                         </button>
                                     {% endif %}
                                 </form>                                

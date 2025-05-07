@@ -89,7 +89,8 @@
                           <div class="card-body p-4">
                               <div class="text-center">
                                   <!-- Product name -->
-                                  <h5 class="fw-bolder card-text">{{ product.name }}</h5>
+                                  <a href="{% url 'product_detail' product.id %}">
+                                  <h5 class="fw-bolder card-text">{{ product.name }}</h5></a>
                                   {% if product.category %}
                                       <p class="small mt-1 mb-0">
                                           <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -116,12 +117,12 @@
                             {% csrf_token %}
                             <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
                             {% if user.is_authenticated and product in user.userprofile.wishlist.all %}
-                                <button type="submit" class="btn btn-link p-0" title="In Wishlist">
-                                    <i class="fas fa-heart text-black">In your Wishlist</i>
+                                <button type="submit" class="btn btn-link p-0" title="Already In Wishlist">
+                                  <i class="fa-solid fa-heart wishlist text-black">In your Wishlist</i>
                                 </button>
                             {% else %}
                                 <button type="submit" class="btn btn-link p-0" title="Add to Wishlist">
-                                    <i class="far fa-heart text-muted text-center wish-list">Add to Wishlist</i>
+                                  <i class="fa-regular fa-heart wishlist text-black">Add to Wishlist</i>
                                 </button>
                             {% endif %}
                           </form>          
@@ -133,7 +134,7 @@
                   </div>
                   {% if forloop.counter|divisibleby:4 %}
                       </div> 
-                      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                      <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-4 justify-content-center">
                   {% endif %}
               {% endfor %}
           </div>

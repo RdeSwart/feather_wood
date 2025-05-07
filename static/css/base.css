@@ -9,6 +9,10 @@ body {
     color: #daa1d0;
 }
 
+.nav-icon {
+    color: #daa1d0;
+}
+
 
 .navbar {
     flex-wrap: nowrap !important;
@@ -24,6 +28,10 @@ body {
     color: white !important;
 }
 
+#main-nav {
+    padding-top: 0;
+}
+
 #delivery-banner {
     background-color: #b6afaf;
 }
@@ -32,6 +40,11 @@ body {
     color: #000;
     background-color: #daa1d0;
     border-color: #daa1d0;
+}
+
+.btn-primary:hover {
+    background-color: #db76c9;
+    border-color: #db76c9;
 }
 
 .wish-list {
@@ -67,6 +80,11 @@ a.brand-badge> span.badge:hover {
     cursor: pointer;
 }
 
+.card-body a {
+    text-decoration: none;
+    color: #000;
+}
+
 .about {
     padding-top: 80px;
 }
@@ -77,6 +95,10 @@ a.brand-badge> span.badge:hover {
 .fa-rotate-left {
     color: #daa1d0;
     font-size: large;
+}
+
+.foot {
+    background-color: #b6afaf;
 }
 
 /* --------------------------------------------------- Help from ChatGPT to write function for product cards */
