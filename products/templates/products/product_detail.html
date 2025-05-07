@@ -33,10 +33,15 @@
                     </a>
                 </p>
             {% endif %}
-            <div class="mb-3">
+            {% if product.rating %}
+            <div class="d-flex align-items-center gap-1">
                 {{ product.get_star_rating|safe }}
-                <span class="ms-2">{{ product.rating }}</span>
+                <span class="visually-hidden">Rated {{ product.rating }} out of 5</span>
             </div>
+            <hr>
+            {% else %}
+            <small class="text-muted">No rating yet</small><hr>
+            {% endif %}
             <p class="mb-4">{{ product.description }}</p>
             
             <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
@@ -82,16 +87,16 @@
             <form action="{% url 'add_to_wishlist' product.id %}" method="POST">
                 {% csrf_token %}
                 <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
-                {% if user.is_authenticated and product in user.userprofile.wishlist.all %}
-                    <button type="submit" class="btn btn-link p-0" title="Already In Wishlist">
-                      <i class="fa-solid fa-heart wishlist text-black">In your Wishlist</i>
+                {% if user.is_authenticated and product.id in wishlist_items %}
+                    <button type="submit" class="btn btn-link p-0" title="In Wishlist">
+                        <i class="fa-solid fa-heart wishlist text-danger small"></i>
                     </button>
                 {% else %}
                     <button type="submit" class="btn btn-link p-0" title="Add to Wishlist">
-                      <i class="fa-regular fa-heart wishlist text-black">Add to Wishlist</i>
+                        <i class="fa-regular fa-heart wishlist text-dark small">Add to Wishlist</i>
                     </button>
                 {% endif %}
-              </form>       
+            </form>      
         </div>
     </div>
 </div>

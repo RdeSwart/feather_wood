@@ -63,6 +63,10 @@ def all_products(request):
             )
             products = products.filter(queries)
 
+    wishlist_items = []
+    if request.user.is_authenticated:
+        wishlist_items = WishlistItem.objects.filter(user=request.user).values_list('product_id', flat=True)
+
     current_sorting = f'{sort}_{direction}'
 
     context = {
@@ -71,6 +75,7 @@ def all_products(request):
         'current_categories': categories,
         'current_brands': brands,
         'current_sorting': current_sorting,
+        'wishlist_items': wishlist_items,
     }
     return render(request, 'products/products.html', context)
 
@@ -82,8 +87,13 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
+    wishlist_items = []
+    if request.user.is_authenticated:
+        wishlist_items = WishlistItem.objects.filter(user=request.user).values_list('product_id', flat=True)
+
     context = {
         'product': product,
+        'wishlist_items': wishlist_items,
     }
     return render(request, 'products/product_detail.html', context)
 
