@@ -74,7 +74,6 @@
       </script>
 
       <!-- carousel -->
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
       {% endblock %}
 
@@ -190,15 +189,15 @@
       {% endblock %}
 
       {% block postloadjs %}
-        <script>
-          $(document).ready(function() {
-            $('.toast').toast('show'); 
-            $('.toast .close-btn').on('click', function() {
-            $(this).closest('.toast').remove();
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          document.querySelectorAll('.toast').forEach(function(toastEl) {
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
           });
         });
       </script>
-    {% endblock %}
+      {% endblock %}
    
     <footer class="foot text-center text-lg-start border border-white mt-xl-5 pt-4">
       
