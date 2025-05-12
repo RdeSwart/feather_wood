@@ -73,68 +73,68 @@
                       <div class="card h-100">
                           <!-- Sale badge -->
                           {% if product.discount %}
-                              <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                          {% endif %}
-                          <!-- Product image -->
-                          {% if product.image %}
-                              <a href="{% url 'product_detail' product.id %}">
-                                  <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                              </a>
-                          {% else %}
-                              <a href="{% url 'product_detail' product.id %}">
-                                  <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                              </a>
-                          {% endif %}
-                          <!-- Product details -->
-                          <div class="card-body p-4">
-                              <div class="text-center">
-                                  <!-- Product name -->
-                                  <a href="{% url 'product_detail' product.id %}">
-                                  <h5 class="fw-bolder card-text">{{ product.name }}</h5></a>
-                                  {% if product.category %}
-                                      <p class="small mt-1 mb-0">
-                                          <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                                              <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                                          </a>
-                                      </p>
-                                  {% endif %}
-                                  {% if product.rating %}
-                                    <div class="d-flex align-items-center gap-1">
-                                      {{ product.get_star_rating|safe }}
-                                      <span class="visually-hidden">Rated {{ product.rating }} out of 5</span>
-                                    </div>
-                                    <hr>
+                          <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                        {% endif %}
+                        <!-- Product image -->
+                        {% if product.image %}
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            </a>
+                        {% else %}
+                          <a href="{% url 'product_detail' product.id %}">
+                              <img class="card-img-top" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" />
+                          </a>
+                      {% endif %}
+                      <!-- Product details -->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name -->
+                              <h5 class="fw-bolder card-text">{{ product.name }}</h5>
+                              {% if product.category %}
+                                  <p class="small mt-1 mb-0">
+                                      <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                          <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                      </a>
+                                  </p>
+                              {% endif %}
+                              {% if product.rating %}
+                                  <div class="d-flex align-items-center gap-1">
+                                  {{ product.get_star_rating|safe }}
+                                  <span class="visually-hidden">Rated {{ product.rating }} out of 5</span>
+                                  </div>
+                                  <hr>
+                              {% else %}
+                                  <small class="text-muted">No rating yet</small><hr>
+                              {% endif %}
+                              <!-- Product price -->
+                              {% if product.discount %}
+                                  <span class="text-muted text-decoration-line-through">Was: €{{ product.rrp_price }}</span><br>
+                                  Now: €{{ product.sale_price }}
+                              {% else %}
+                                  €{{ product.rrp_price }}
+                              {% endif %}
+                              <!-- Wishlist -->
+                              <form action="{% url 'add_to_wishlist' product.id %}" method="POST">
+                                  {% csrf_token %}
+                                  <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                                  {% if user.is_authenticated and product.id in wishlist_items %}
+                                      <button type="submit" class="btn btn-link p-0" title="In Wishlist">
+                                          <i class="fa-solid fa-heart wishlist logo-text small">In your Wishlist</i>
+                                      </button>
                                   {% else %}
-                                    <small class="text-muted">No rating yet</small><hr>
+                                      <button type="submit" class="btn btn-link p-0" title="Add to Wishlist">
+                                          <i class="fa-regular fa-heart wishlist text-dark small">Add to Wishlist</i>
+                                      </button>
                                   {% endif %}
-                                  <!-- Product price -->
-                                  {% if product.discount %}
-                                      <span class="text-muted text-decoration-line-through">Was: €{{ product.rrp_price }}</span><br>
-                                      Now: €{{ product.sale_price }}
-                                  {% else %}
-                                      €{{ product.rrp_price }}
-                                  {% endif %}
-                              </div>
-                          </div>
-                          <form action="{% url 'add_to_wishlist' product.id %}" method="POST">
-                            {% csrf_token %}
-                            <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
-                            {% if user.is_authenticated and product.id in wishlist_items %}
-                                <button type="submit" class="btn btn-link p-0" title="In Wishlist">
-                                    <i class="fa-solid fa-heart wishlist text-danger small">In your Wishlist</i>
-                                </button>
-                            {% else %}
-                                <button type="submit" class="btn btn-link p-0" title="Add to Wishlist">
-                                    <i class="fa-regular fa-heart wishlist text-dark small">Add to Wishlist</i>
-                                </button>
-                            {% endif %}
-                          </form>       
-                          <!-- Product actions -->
-                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product_detail' product.id %}">View Product</a></div>
+                              </form>                             
                           </div>
                       </div>
+                      <!-- Product actions -->
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product_detail' product.id %}">View Product</a></div>
+                      </div>
                   </div>
+              </div>
                   {% if forloop.counter|divisibleby:4 %}
                       </div> 
                       <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-4 justify-content-center">
