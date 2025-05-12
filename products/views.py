@@ -8,34 +8,34 @@ from django.contrib.auth.decorators import login_required
 
 def all_products(request):
     """
-    This view returns a list of all products, including
-    a search and sort feature
+    This view returns a list of all products, with search, filter, and sorting.
     """
-
     products = Product.objects.all()
     query = None
     categories = None
     brands = None
     sort = None
     direction = None
-    sortkey = 'lower_name'
+
     if request.GET:
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
+        sort = request.GET.get('sort')
+        direction = request.GET.get('direction')
+        sortkey = sort
 
-        if sortkey == 'price_asc':
+        if sort == 'name':
+            sortkey = 'lower_name'
+            products = products.annotate(lower_name=Lower('name'))
+        elif sort == 'price':
             sortkey = 'rrp_price'
-        elif sortkey == 'price_desc':
-            sortkey = '-rrp_price'
+        elif sort == 'rating':
+            sortkey = 'rating'
+        elif sort == 'category':
+            sortkey = 'category__friendly_name'
 
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
+        if direction == 'desc':
+            sortkey = f'-{sortkey}'
+
+        if sort:
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:
@@ -67,7 +67,7 @@ def all_products(request):
     if request.user.is_authenticated:
         wishlist_items = WishlistItem.objects.filter(user=request.user).values_list('product_id', flat=True)
 
-    current_sorting = f'{sort}_{direction}'
+    current_sorting = f'{sort}_{direction}' if sort and direction else 'None_None'
 
     context = {
         'products': products,

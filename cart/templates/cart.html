@@ -36,10 +36,14 @@
                             {% for item in cart_items %}
                                 <tr class="align-middle border-bottom">
                                     <td class="p-3 w-25">
+                                        <a href="{% url 'product_detail' item.product.id %}">
                                         <img class="img-fluid rounded mx-auto d-block" style="max-width: 150px;" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                        </a>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                        <p class="my-0"><strong><a href="{% url 'product_detail' item.product.id %}">
+                                            {{ item.product.name }}
+                                        </a></strong></p>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.product.rrp_price }}</p>
