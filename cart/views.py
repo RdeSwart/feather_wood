@@ -46,11 +46,16 @@ def add_to_cart(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
+    item_id = str(item_id)
     if item_id in cart:
-        cart[item_id] += quantity
-        messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
+        cart[item_id]['quantity'] += quantity
+        cart[item_id]['subtotal'] = float(cart[item_id]['quantity'] * product.rrp_price)
+        messages.success(request, f'Updated {product.name} quantity to {cart[item_id]["quantity"]}')
     else:
-        cart[item_id] = quantity
+        cart[item_id] = {
+            'quantity': quantity,
+            'subtotal': float(product.rrp_price * quantity)
+        }
         messages.success(request, f'Added {product.name} to your cart')
 
     request.session['cart'] = cart

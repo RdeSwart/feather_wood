@@ -85,6 +85,13 @@ a.brand-badge> span.badge:hover {
     color: #000;
 }
 
+a:link,
+a:visited,
+a:hover,
+a:active { 
+    text-decoration: none; 
+  } 
+
 .about {
     padding-top: 80px;
 }
