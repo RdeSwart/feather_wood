@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /cart/
+Disallow: /profiles/
+Disallow: /checkout/
+Disallow: /admin/
+Sitemap: https://feather-and-wood-c856568c8675.herokuapp.com/Sitemap.xml
