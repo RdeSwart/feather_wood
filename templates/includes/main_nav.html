@@ -12,8 +12,8 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="{% url 'products' %}?brand=melissa_and_doug,stockmar,hape,bigjigs" role="button" data-bs-toggle="dropdown" aria-expanded="false">Brands</a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownBrands" href="{% url 'products' %}?brand=melissa_and_doug,stockmar,hape,bigjigs" role="button" data-bs-toggle="dropdown" aria-expanded="false">Brands</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownBrands">
                 <li><a class="dropdown-item" href="{% url 'products' %}?brand=melissa_and_doug">Melissa & Doug</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?brand=stockmar">Stockmar</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?brand=hape">Hape</a></li>
@@ -23,8 +23,8 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="{% url 'products' %}?category=preschool,role-play,dolls,doll_house" role="button" data-bs-toggle="dropdown" aria-expanded="false">Toys</a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownToys" href="{% url 'products' %}?category=preschool,role-play,dolls,doll_house" role="button" data-bs-toggle="dropdown" aria-expanded="false">Toys</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownToys">
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=preschool">Preschool</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=role-play">Role Play</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=dolls">Dolls</a></li>
@@ -34,8 +34,8 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="{% url 'products' %}?category=song-books,readers,food" role="button" data-bs-toggle="dropdown" aria-expanded="false">Books</a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownBooks" href="{% url 'products' %}?category=song-books,readers,food" role="button" data-bs-toggle="dropdown" aria-expanded="false">Books</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownBooks">
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=song-books">Song Books</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=readers">Story Books</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=food">Food & Celebration</a></li>
@@ -44,8 +44,8 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="{% url 'products' %}?category=crayons,craft-kit,paint" role="button" data-bs-toggle="dropdown" aria-expanded="false">Art & Craft</a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownArt" href="{% url 'products' %}?category=crayons,craft-kit,paint" role="button" data-bs-toggle="dropdown" aria-expanded="false">Art & Craft</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownArt">
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=crayons">Crayons</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=craft-kit">Craft Kits</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?category=paint">Paint Sets</a></li>

@@ -7,7 +7,35 @@ def cart(request):
     """
     This view returns the Shopping Cart Page
     """
-    return render(request, 'cart.html')
+    cart = request.session.get('cart', {})
+    cart_items = []
+    total = 0
+
+    for item_id, item_data in cart.items():
+        product = get_object_or_404(Product, pk=item_id)
+
+        quantity = item_data.get('quantity', 0)
+        subtotal = item_data.get('subtotal', float(product.rrp_price) * quantity)
+        total += subtotal
+
+        cart_items.append({
+            'item_id': item_id,
+            'product': product,
+            'quantity': quantity,
+            'subtotal': subtotal,
+        })
+
+    delivery = 6.99
+    grand_total = total + delivery
+
+    context = {
+        'cart_items': cart_items,
+        'total': total,
+        'delivery': delivery,
+        'grand_total': grand_total,
+    }
+
+    return render(request, 'cart.html', context)
 
 
 def add_to_cart(request, item_id):
@@ -31,24 +59,26 @@ def add_to_cart(request, item_id):
 
 def adjust_cart(request, item_id):
     """ Adjust the quantity of the product to the shopping cart """
-
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
+    item_id = str(item_id)
     cart = request.session.get('cart', {})
 
     if quantity > 0:
-        cart[item_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
+        subtotal = float(quantity * product.rrp_price)
+        cart[item_id] = {'quantity': quantity, 'subtotal': subtotal}
+        messages.success(
+            request, f'Updated {product.name} quantity to {cart[item_id]["quantity"]}')
     else:
         cart.pop(item_id)
         messages.success(request, f'Removed {product.name} from your Cart')
-        
+
     request.session['cart'] = cart
     return redirect(reverse('cart'))
 
 
 def remove_from_cart(request, item_id):
-    """ Remove the item from the shopping bag """
+    """ Remove the item from the shopping cart """
 
     product = get_object_or_404(Product, pk=item_id)
     cart = request.session.get('cart', {})

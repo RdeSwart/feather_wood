@@ -104,7 +104,7 @@
                                     <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
                                     {% if user.is_authenticated and product.id in wishlist_items %}
                                         <button type="submit" class="btn btn-link p-0" title="In Wishlist">
-                                            <i class="fa-solid fa-heart wishlist text-danger small"></i>
+                                            <i class="fa-solid fa-heart wishlist text-danger small">In your Wishlist</i>
                                         </button>
                                     {% else %}
                                         <button type="submit" class="btn btn-link p-0" title="Add to Wishlist">

@@ -9,7 +9,7 @@
 {% block content %}
 
     <div class="overlay"></div>
-    <div class="container mb-2">
+    <div class="container mb-2 pt-5">
         <div class="row">
             <div class="col">
                 <br>
@@ -34,9 +34,9 @@
                                 </tr>
                             </thead>
                             {% for item in cart_items %}
-                                <tr>
+                                <tr class="align-middle border-bottom">
                                     <td class="p-3 w-25">
-                                        <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                        <img class="img-fluid rounded mx-auto d-block" style="max-width: 150px;" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
@@ -72,35 +72,35 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="update-link text-info"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <a class="update-link text-info"><small>Update</small></a>
+                                            <a class="remove-item text-danger" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+                                        </div>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">€{{ item.product.rrp_price }}</p>
+                                        <p class="my-0">€{{ item.subtotal|floatformat:2 }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
                             <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Cart Total: €{{ total|floatformat:2 }}</strong></h6>
-                                    <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+                                <td colspan="5">
+                                    <div class="text-end pe-2">
+                                        <p class="mb-1"><strong>Cart Total:</strong> €{{ total|floatformat:2 }}</p>
+                                        <p class="mb-1"><strong>Delivery:</strong> €{{ delivery|floatformat:2 }}</p>
+                                        <p class="fs-5 mt-3"><strong>Grand Total:</strong> €{{ grand_total|floatformat:2 }}</p>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="5" class="text-right">
-                                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
-                                    </a>
-                                    <a href="{% url 'checkout' %}" class="btn btn-primary rounded-0 btn-lg" id="checkout-button">
-                                        <span class="text-uppercase">Secure Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
+                                <td colspan="5" class="text-end">
+                                    <div class="d-flex flex-wrap justify-content-end gap-3">
+                                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                            <i class="fas fa-chevron-left me-2"></i> Keep Shopping
+                                        </a>
+                                        <a href="{% url 'checkout' %}" class="btn btn-primary rounded-0 btn-lg" id="checkout-button">
+                                            <i class="fas fa-lock me-2"></i> Secure Checkout
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                         </table>
@@ -125,25 +125,23 @@
 
 
 <script>
-    
-    // Update quantity on click
     $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
-        form.submit();
-    })
+        e.preventDefault(); 
+        var form = $(this).closest('td').find('.update-form');  
+        form.submit(); 
+    });
 
-    // Remove item and reload on click
     $('.remove-item').click(function(e) {
-        var csrfToken = "{{ csrf_token }}";
+        var csrfToken = "{{ csrf_token }}"; 
         var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/cart/remove/${itemId}/`;
+        var url = `/cart/remove/${itemId}/`; 
         var data = {
             csrfmiddlewaretoken: csrfToken,
         };
-        $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
-    })
+
+        $.post(url, data).done(function() {
+            location.reload();
+        });
+    });
 </script>
 {% endblock %}
