@@ -3,7 +3,7 @@
 Feather and Wood is a website that sells wooden, plush and STEM toys to those who want to engage their children in toys and games that don't have the hyper stimulation that plastic, battery toys tend to have.
 Alot of these customers follow or are curious about the Montessorri or Steiner teachings, which is ultimately teaching through play, giving space for the individual child's own imagination.
 
-![Am I responsive image]()
+![Am I responsive image](assets/doc-images/am-i-responsive.png)
 ![Click here to view the live site](https://feather-and-wood-c856568c8675.herokuapp.com)
 
 ## Table of Contents:
@@ -88,6 +88,8 @@ I used Balsamiq to create the wireframe for the project.
 ![Wireframe mobile]()
 
 </details>
+
+[Back to Top](#feather-and-wood)
 
 #### Database Schemas:
 
@@ -189,9 +191,11 @@ The Product Model object represents the products on sale, created by the SuperUs
 
 <details><summary>Click to view ERD</summary>
 
-![Image of ERD]()
+![Image of ERD](assets/doc-images/ERD.png)
 
 </details>
+
+[Back to Top](#feather-and-wood)
 
 #### Agile Methodology:
 
@@ -255,19 +259,27 @@ Tasks:
 2. Fix and document any bugs
 3. Note testing in docs
 
+[Back to Top](#feather-and-wood)
+
 ## Features:
 
 1. Navbar
 <details><summary>Click to view NavBar</summary>
 
-![Image of NavBar]()
+![NavBar on Desktop](assets/doc-images/navbar-desktop.png)
+![Navbar on Mobile](assets/doc-images/navbar-mobile.png)
+![Mobile Dropdown Menu](assets/doc-images/mobile-dropdown.png)
 
 </details>
 
 2. Toasts
 <details><summary>Click to view Toasts</summary>
 
-![Image of Toast]()
+![Image of Success Toast](assets/doc-images/toast-success.png)
+![Image of Alert Toast](assets/doc-images/toast-alert.png)
+![Image of Info Toast]()
+![Image of Warning Toast]()
+![Image of Error Toast](assets/doc-images/toast-error.png)
 
 </details>
 
@@ -281,14 +293,14 @@ Tasks:
 4. Footer
 <details><summary>Click to view Footer</summary>
 
-![Image of Footer]()
+![Image of Footer](assets/doc-images/footer.png)
 
 </details>
 
 3. Home Page
 <details><summary>Click to view Home Page</summary>
 
-![Image of Home Page]()
+![Image of Home Page](assets/doc-images/home-page.png)
 
 </details>
 
@@ -310,14 +322,16 @@ Tasks:
 <details><summary>Click to view Newsletter Signup</summary>
 
 
-    ![Image of Newsletter Signup]()
-
+    ![Image of Newsletter Signup](assets/doc-images/newsletter.png)
+    ![Newsletter Success Message](assets/doc-images/newsletter-success.png)
     </details>
+
+[Back to Top](#feather-and-wood)
 
 4. Product Page
 <details><summary>Click to view Product Page</summary>
 
-![Image of Product Page]()
+![Image of Product Page](assets/doc-images/all-products-page.png)
 
 </details>
 
@@ -325,15 +339,7 @@ Tasks:
 <details><summary>Click to view Single Product Card</summary>
 
 
-    ![Image of Single Product Card]()
-
-    </details>
-
-- Page Pagination
-<details><summary>Click to view Page Pagination</summary>
-
-
-    ![Image of Page Pagination]()
+    ![Image of Single Product Card](assets/doc-images/single-product-card.png)
 
     </details>
 
@@ -341,7 +347,7 @@ Tasks:
    This Page is rendered when a user clicks on a certain product in order to see a more detailed view of what the product is.
 <details><summary>Click to view Product Details Page</summary>
 
-![Image of Product Details Page]()
+![Image of Product Details Page](assets/doc-images/product-detail.png)
 
 </details>
 
@@ -385,8 +391,10 @@ Tasks:
 
 8. User Profile Page
 <details><summary>Click to view User Profile Page</summary>
+This page will hold the customers past orders and delivery information, their wishlist and reviews will also be available to edit or delete here.
 
-![Image of User Profile Page]()
+![Image of User Profile Page](assets/doc-images/user-profile-page.png)
+![User Profile Page Wishlist](assets/doc-images/user-wishlist.png)
 
 </details>
 
@@ -394,7 +402,7 @@ Tasks:
 <details><summary>Click to view Shopping Bag Page</summary>
 When a user chooses and item to buy, it will be added to the cart page. When the cart icon is clicked, the user will be brought to the cart page to see details of what they would like to buy, with product name, amount, individual cost and total.
 
-![Image of User Shopping Bag Page]()
+![Image of User Shopping Cart Page](assets/doc-images/shopping-cart-page.png)
 
 </details>
 
@@ -402,7 +410,7 @@ When a user chooses and item to buy, it will be added to the cart page. When the
 <details><summary>Click to view Checkout Page</summary>
 When the customer decides they have finished shopping and would like to checkout their products, they will click on the checkout button. From here, they will brought to the checkout page, where they will enter their personal details, such as name, address, phone number etc.They will also enter their valid credit/debit card details securely using Stripe and click Pay Now button.
 
-![Image of User Checkout Page]()
+![Image of User Checkout Page](assets/doc-images/checkout-page.png)
 
 </details>
 
@@ -410,9 +418,11 @@ When the customer decides they have finished shopping and would like to checkout
 <details><summary>Click to view Order Confirmation Page</summary>
 When payment has been successful, an order confirmation page will display for the user. Here it will show details of the order and a message to say that an email will also be sent
 
-![Image of Order Confirmation Page]()
+![Image of Order Confirmation Page](assets/doc-images/checkout-success.png)
 
 </details>
+
+[Back to Top](#feather-and-wood)
 
 12. Order Confirmation Email
 <details><summary>Click to view Order Confirmation Email</summary>
@@ -425,7 +435,7 @@ When payment has been successful, an order confirmation page will display for th
 <details><summary>Click to view Administration Page Overview</summary>
 Functionality to add new products, new brands, edit or delete products/brands. They will have access to view order details such as customer name,address and phone number and what they ordered.
 
-![Image of Administration Page Overview]()
+![Image of Administration Page Overview](assets/doc-images/admin-page.png)
 
 </details>
 
@@ -446,44 +456,38 @@ Custom sign out page, making logging out simple and user intuitive. A message wi
 
 </details>
 
-16. My Profile Page
-<details><summary>Click to view My Profile Page</summary>
-This page will hold the customers past orders and delivery information, their wishlist and reviews will also be available to edit or delete here.
-
-![Image of Profile Page]()
-
-</details>
-
 ### Future Features:
 Features I didn't have time for or would like to implement in the future:
-1. Free Delivery over a certain amount
+1. Free Delivery over a certain threshold
 2. Loyalty Card
 3. Pre-Order on items due in stock
 
+[Back to Top](#feather-and-wood)
+
 ## Marketing:
 
-Business Model;
+Business Model: 
 Marketing:
 To keep customers up to date with social media, Feather and Wood has a Facebook page, which is linked in the footer. Here, the site is updated daily with either stories or posts or both, some of which will ask for interaction with customers to keep them engaged and to keep our content relevant and consistently in the customers mind’s eye. 
 
-You can view it here:
+You can view it here: [Link to Facebook Page](https://www.facebook.com/profile.php?id=61574163059661#)
+
+![Image of Facebook Page](assets/doc-images/facbook-page.png)
+
+![Image of Facebook Link in Footer](assets/doc-images/social-links.png)
 
 Customers can also signup to Feather and Woods Newsletter. This is done using MailChimp. You do not need to be a registered user to sign up. It is a simple, enter email address function, with a successful message display. 
 
+
 It is located near the footer here:
 
-![Image of Newsletter Signup]()
-
-As part of social media inclusion, Feather and Wood created a Facebook Page in order to update customers everyday/week:
-
-![Image of Facebook Page]()
-
-![Image of Facebook Link in Footer]()
+![Image of Newsletter Signup](assets/doc-images/newsletter.png)
+![Successfull newsletter signup message](assets/doc-images/newsletter-success.png)
 
 
 ## SEO:Search Engine Optimisation:
 
-To help improve our SEO, I made a sitemap.xml and robots.txt file enhancing the site's crawlability, indexability, and relevance. As per advise, I avoided including duplicate, canonical, redirected, or blocked pages. I used the most-used words relating to Steiner and Waldorf education toys and toys in general to engage as many customers as possible.
+To help improve our SEO, I made a sitemap.xml via [sitemap.xl.com](https://www.xml-sitemaps.com/) and a robots.txt file, located in the root folder of the project, enhancing the site's crawlability, indexability, and relevance. As per advise, I avoided including duplicate, canonical, redirected, or blocked pages. I used the most-used words relating to Steiner and Waldorf education toys and toys in general to engage as many customers as possible.
 
 
 ## Testing:
@@ -492,6 +496,8 @@ Please see ****testing docs url path here!!******** for details of testing
 ## Bugs:
 After connecting my Heroku app and AWS S3 Bucket for serving media and static files, the app stopped connecting.
 To fix this:
+
+[Back to Top](#feather-and-wood)
 
 ## Technologies and Languages:
 
@@ -553,7 +559,9 @@ GitHub will automatically create a copy of the repository under your GitHub acco
 If you want to contribute your changes to the original repository, you can create a Pull Request from your fork to the original repository.
 
 ## Credits:
-1. I relied quite heavily on the Boutique Ado walkthrough project from Code Institute for this project
-   as time was not on my side.
+1. I relied quite heavily on the Boutique Ado walkthrough project from Code Institute for this project as time was not on my side.
 2. OpenAi - ChatGpt for problem solving and further understanding when I couldn't find the answers elsewhere.
 3. Stack Overflow for problems that I searched for.
+4. The wonderful Slack community - most of my searches brought something up here and it was nice to know I was not the only one facing certain problems!
+
+[Back to Top](#feather-and-wood)
