@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category, Brand, WishlistItem
+from .models import Product, Category, Brand, WishlistItem, ProductReview
+from .forms import ProductReviewForm
 from django.contrib.auth.decorators import login_required
+from checkout.models import OrderLineItem
 
 
 def all_products(request):
@@ -138,3 +140,48 @@ def remove_from_wishlist(request, product_id):
 
     redirect_url = request.POST.get('redirect_url', '/profile/')
     return redirect(redirect_url)
+
+
+@login_required
+def submit_review(request, product_id):
+    """
+    This view allows logged in Users to create a product review.
+    """
+    product = get_object_or_404(Product, id=product_id)
+
+    # Check if user has purchased the product
+    has_purchased = OrderLineItem.objects.filter(
+        order__user_profile=request.user.userprofile,
+        product=product
+    ).exists()
+
+    if not has_purchased:
+        messages.error(request, "You can only review products you've purchased.")
+        return redirect('profile')
+
+    # Check if the user already submitted a review
+    if ProductReview.objects.filter(user=request.user, product=product).exists():
+        messages.info(request, "You've already submitted a "
+                     "review for this product.")
+        return redirect('profile')
+
+    if request.method == 'POST':
+        form = ProductReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.product = product
+            review.save()
+            messages.success(request, "Thank you! Your review "
+                            "has been submitted.")
+            return redirect('profile')
+        else:
+            messages.error(request, "There was an error with your review.")
+    else:
+        form = ProductReviewForm()
+
+    context = {
+        'form': form,
+        'product': product,
+    }
+    return render(request, 'products/submit_review.html', context)

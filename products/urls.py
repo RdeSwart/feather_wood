@@ -8,5 +8,7 @@ urlpatterns = [
          name='add_to_wishlist'),
     path('wishlist/remove/<int:product_id>/', views.remove_from_wishlist,
          name='remove_from_wishlist'),
+    path('submit_review/<int:product_id>/', views.submit_review,
+         name='submit_review'),
 
 ]

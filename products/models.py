@@ -42,7 +42,8 @@ class Product(models.Model):
             star_rating_html += '<i class="fas fa-star text-warning"></i>'
 
         if half_star:
-            star_rating_html += '<i class="fas fa-star-half-alt text-warning"></i>'
+            star_rating_html += '<i class="fas fa-star-half-alt text-warning">'
+            '</i>'
 
         for _ in range(empty_stars):
             star_rating_html += '<i class="far fa-star text-warning"></i>'
@@ -87,3 +88,21 @@ class WishlistItem(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.product.name}"
+ 
+
+class ProductReview(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,
+                                related_name='reviews')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.PositiveSmallIntegerField(choices=[(i, i)
+                                                       for i in range(1, 6)])
+    review_text = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_approved = models.BooleanField(default=True)
+
+    class Meta:
+        unique_together = ('product', 'user')
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'Review by {self.user.username} for {self.product.name}'
