@@ -88,11 +88,12 @@ def product_detail(request, product_id):
     """
 
     product = get_object_or_404(Product, pk=product_id)
+    reviews = product.reviews.all()
 
     wishlist_items = []
     if request.user.is_authenticated:
         wishlist_items = WishlistItem.objects.filter(user=request.user).values_list('product_id', flat=True)
-        reviews = product.reviews.all()
+        
 
     context = {
         'product': product,
