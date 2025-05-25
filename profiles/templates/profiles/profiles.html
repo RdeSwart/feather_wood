@@ -72,6 +72,23 @@
             </div>
         </div>
     </div>
+    {% for product in purchased_products %}
+    <div class="product-review-section">
+        <h4>{{ product.name }}</h4>
+        {{ product.get_star_rating|safe }}
+
+        {% for review in product.reviews.all %}
+        <p><strong>{{ review.user }}:</strong> {{ review.review_text }} ({{ review.rating }}/5)</p>
+        {% endfor %}
+
+        <form method="POST" action="{% url 'submit_review' product.id %}">
+        {% csrf_token %}
+        {{ review_form.rating }}
+        {{ review_form.review_text }}
+        <button type="submit">Submit Review</button>
+        </form>
+    </div>
+    {% endfor %}
     <div class="col-12 mt-5">
         <h5 class="text-muted">My Wishlist</h5>
         {% if wishlist_items %}

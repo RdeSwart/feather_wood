@@ -92,10 +92,12 @@ def product_detail(request, product_id):
     wishlist_items = []
     if request.user.is_authenticated:
         wishlist_items = WishlistItem.objects.filter(user=request.user).values_list('product_id', flat=True)
+        reviews = product.reviews.all()
 
     context = {
         'product': product,
         'wishlist_items': wishlist_items,
+        'reviews': reviews,
     }
     return render(request, 'products/product_detail.html', context)
 

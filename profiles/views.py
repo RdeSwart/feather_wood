@@ -5,33 +5,45 @@ from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
 from .forms import UserProfileForm
-from products.models import WishlistItem
+from products.models import WishlistItem, Product, ProductReview
+from products.forms import ProductReviewForm
 
 
+@login_required
 def profile(request):
-    """ Display the user's profile. """
+    """ Display user's profile, orders, and reviewable products """
 
-    profile = get_object_or_404(UserProfile, user=request.user)
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+    orders = user_profile.orders.all()
     wishlist_items = WishlistItem.objects.filter(user=request.user)
 
-    if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=profile)
+    if request.method == 'POST' and 'save_profile' in request.POST:
+        form = UserProfileForm(request.POST, instance=user_profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your profile was updated successfully')
+            messages.success(request, 'Your profile was updated successfully.')
+        else:
+            messages.error(request, 'Failed to update profile. Please check the form.')
+    else:
+        form = UserProfileForm(instance=user_profile)
 
-    form = UserProfileForm(instance=profile)
-    orders = profile.orders.all()
+    purchased_products = Product.objects.filter(
+        orderlineitem__order__user_profile=user_profile
+    ).distinct()
 
-    template = 'profiles/profiles.html'
+    submitted_reviews = ProductReview.objects.filter(user=request.user)
+
     context = {
+        'profile': user_profile,
         'form': form,
         'orders': orders,
         'wishlist_items': wishlist_items,
-        'on_profile_page': True
+        'purchased_products': purchased_products,
+        'submitted_reviews': submitted_reviews,
+        'review_form': ProductReviewForm(),
     }
 
-    return render(request, template, context)
+    return render(request, 'profiles/profiles.html', context)
 
 
 @login_required

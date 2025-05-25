@@ -99,6 +99,20 @@
         </div>
     </div>
 </div>
+<hr>
+<h3 class="logo-font">Customer Reviews</h3>
+{% if reviews %}
+<ul>
+    {% for review in reviews %}
+        <li>
+            <strong>{{ review.user.username }}</strong> rated it {{ review.rating }}/5<br>
+            "{{ review.review_text }}"
+        </li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>This product hasn't been reviewed yet.</p>
+{% endif %}
 {% endblock %}
 
 {% block postloadjs %}
