@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -36,21 +37,20 @@ def checkout(request):
             for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
+                    quantity = item_data if isinstance(item_data, int) else item_data.get('quantity', 0)
+                    if quantity > 0:
+                        OrderLineItem.objects.create(
                             order=order,
                             product=product,
-                            quantity=item_data,
+                            quantity=quantity,
                         )
-                        order_line_item.save()
-                    
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
-                        "Please call us for assistance!")
-                    )
+                        "One of the products in your cart wasn't found."
+                    ))
                     order.delete()
                     return redirect(reverse('view_bag'))
+            order.update_total()
 
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_no]))
@@ -62,7 +62,8 @@ def checkout(request):
 
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(request, "Looks like you have nothing in your cart at the moment")
+            messages.error(request, 'Looks like you have nothing in your cart'
+                                    ' at the moment.')
             return redirect(reverse('products'))
 
     current_cart = cart_contents(request)
@@ -94,7 +95,8 @@ def checkout(request):
         order_form = OrderForm()
 
     if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing, did you forget to set it in your environment?')
+        messages.warning(request, 'Stripe public key is missing, did you'
+                         'forget to set it in your environment?')
 
     template = 'checkout/checkout.html'
     context = {
@@ -134,12 +136,30 @@ def checkout_success(request, order_no):
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_no}. A confirmation \
         email will be sent to {order.email}.')
-    
+
     if 'cart' in request.session:
         del request.session['cart']
 
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+    }
+    return render(request, template, context)
+
+
+@login_required
+def order_history(request, order_no):
+    """
+    A view to display past order confirmation from the profile page
+    """
+    order = get_object_or_404(Order, order_no=order_no)
+
+    messages.info(request, f'This is a past confirmation for order number {order_no}. '
+                           f'A confirmation email was sent on the order date.')
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'order': order,
+        'from_profile': True,
     }
     return render(request, template, context)
