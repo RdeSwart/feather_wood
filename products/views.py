@@ -149,7 +149,6 @@ def submit_review(request, product_id):
     """
     product = get_object_or_404(Product, id=product_id)
 
-    # Check if user has purchased the product
     has_purchased = OrderLineItem.objects.filter(
         order__user_profile=request.user.userprofile,
         product=product
@@ -159,10 +158,9 @@ def submit_review(request, product_id):
         messages.error(request, "You can only review products you've purchased.")
         return redirect('profile')
 
-    # Check if the user already submitted a review
     if ProductReview.objects.filter(user=request.user, product=product).exists():
         messages.info(request, "You've already submitted a "
-                     "review for this product.")
+                        "review for this product.")
         return redirect('profile')
 
     if request.method == 'POST':

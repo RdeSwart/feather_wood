@@ -42,8 +42,7 @@ class Product(models.Model):
             star_rating_html += '<i class="fas fa-star text-warning"></i>'
 
         if half_star:
-            star_rating_html += '<i class="fas fa-star-half-alt text-warning">'
-            '</i>'
+            star_rating_html += '<i class="fas fa-star-half-alt text-warning"></i>'
 
         for _ in range(empty_stars):
             star_rating_html += '<i class="far fa-star text-warning"></i>'

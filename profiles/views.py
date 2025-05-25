@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
 from .forms import UserProfileForm
-from checkout.models import Order
 from products.models import WishlistItem
 
 
@@ -35,32 +34,13 @@ def profile(request):
     return render(request, template, context)
 
 
-def order_history(request, order_no):
-    """ Display the user's order history. """
-
-    order = get_object_or_404(Order, order_no=order_no)
-
-    messages.info(request, (
-        f'This is a past confirmation for order number {order_no}. '
-        'A confirmation email was sent on the order date.'
-    ))
-
-    template = 'checkout/checkout_success.html'
-    context = {
-        'order': order,
-        'from_profile': True,
-    }
-
-    return render(request, template, context)
-
-
 @login_required
 def user_wishlist_view(request):
     """ Display the user's wishlist items. """
+
     profile = get_object_or_404(UserProfile, user=request.user)
     orders = profile.orders.all()
 
-    # Instead of .get(), use .filter() to get all individual wishlist items
     wishlist_items = WishlistItem.objects.filter(user=request.user)
 
     form = UserProfileForm(instance=profile)

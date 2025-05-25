@@ -30,7 +30,13 @@ body {
 
 #main-nav {
     padding-top: 0;
+    margin-top: 0;
 }
+
+#topnav {
+    margin-bottom: 0;
+    padding-bottom: 0.25rem;
+  }
 
 #delivery-banner {
     background-color: #b6afaf;
@@ -365,6 +371,11 @@ h1.display-5 small {
   #carousel .carousel-item.gentle {
     background-image: url("/media/gentle-play.jpg");
   }
+
+  .carousel-img {
+    height: 60vh;
+    
+  }
   
   #carousel .carousel-item {
     width: 100%;
@@ -428,4 +439,8 @@ h1.display-5 small {
     color: #ffffff;
     background-color: #b87dad;
     border-color: #daa1d0;
+  }
+
+  .carousel-indicators {
+    display: none !important;
   }
