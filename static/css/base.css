@@ -10,9 +10,11 @@ body {
 }
 
 .navbar-nav .nav-link {
-    font-size: 1.1rem;
-    padding: 0.75rem 1rem;
-  }
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s;
+}
   
 .dropdown-menu {
     font-size: 1rem;
@@ -25,13 +27,8 @@ body {
 .nav-icon {
     color: #daa1d0;
 }
-
-.navbar-nav .nav-link {
-    border-radius: 0.5rem;
-    transition: background 0.3s;
-  }
   
-  .navbar-nav .nav-link:hover {
+.navbar-nav .nav-link:hover {
     background-color: #b6afaf;
     color: #ffffff;
   }
@@ -310,6 +307,28 @@ h1.display-5 small {
 }
 
 /* --------------------------------------------------- Media Queries */
+@media (max-width: 991.98px) {
+  #main_nav {
+      background-color: #f6f1f5;
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-top: 1px solid #ccc;
+  }
+
+  #main_nav .nav-link {
+      color: #4b4848;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      display: block;
+      border-radius: 0.5rem;
+  }
+
+  #main_nav .nav-link:hover {
+      background-color: #daa1d0;
+      color: white;
+  }
+}
+
 @media (min-width: 344px) {
     .card-text {
         font-size: 0.70rem;

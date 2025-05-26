@@ -2,8 +2,8 @@
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="{% url 'products' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop By</a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="nav-link dropdown-toggle" id="dropdownShopBy" href="{% url 'products' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop By</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownShopBy">
                 <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=rrp_price&direction=asc">Price</a></li>
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">Rating</a></li>
