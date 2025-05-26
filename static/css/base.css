@@ -48,7 +48,9 @@ body {
     border-color: #daa1d0;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
     background-color: #db76c9;
     border-color: #db76c9;
 }

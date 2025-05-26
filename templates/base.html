@@ -190,14 +190,17 @@
       {% endblock %}
 
       {% block postloadjs %}
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          document.querySelectorAll('.toast').forEach(function(toastEl) {
-            const toast = new bootstrap.Toast(toastEl);
-            toast.show();
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.toast').forEach(function(toastEl) {
+              const toast = new bootstrap.Toast(toastEl, {
+                autohide: true,
+                delay: 5000
+              });
+              toast.show();
+            });
           });
-        });
-      </script>
+        </script>
       {% endblock %}
    
     <footer class="foot text-center text-lg-start border border-white mt-xl-5 pt-4">
