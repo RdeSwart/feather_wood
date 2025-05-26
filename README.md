@@ -263,41 +263,32 @@ Tasks:
 
 ## Features:
 
-1. Navbar
+##### 1. Navbar
 <details><summary>Click to view NavBar</summary>
 
-![NavBar on Desktop](assets/doc-images/navbar-desktop.png)
+![NavBar on Desktop](assets/doc-images/navigation-links.png)
 ![Navbar on Mobile](assets/doc-images/navbar-mobile.png)
 ![Mobile Dropdown Menu](assets/doc-images/mobile-dropdown.png)
 
 </details>
 
-2. Toasts
+##### 2. Toasts
 <details><summary>Click to view Toasts</summary>
 
 ![Image of Success Toast](assets/doc-images/toast-success.png)
 ![Image of Alert Toast](assets/doc-images/toast-alert.png)
-![Image of Info Toast]()
-![Image of Warning Toast]()
 ![Image of Error Toast](assets/doc-images/toast-error.png)
 
 </details>
 
-3. Breadcrumbs
-<details><summary>Click to view Breadcrumbs</summary>
-
-![Image of Breadcrumbs]()
-
-</details>
-
-4. Footer
+##### 3. Footer
 <details><summary>Click to view Footer</summary>
 
 ![Image of Footer](assets/doc-images/footer.png)
 
 </details>
 
-3. Home Page
+##### 4. Home Page
 <details><summary>Click to view Home Page</summary>
 
 ![Image of Home Page](assets/doc-images/home-page.png)
@@ -328,7 +319,7 @@ Tasks:
 
 [Back to Top](#feather-and-wood)
 
-4. Product Page
+##### 5. Product Page
 <details><summary>Click to view Product Page</summary>
 
 ![Image of Product Page](assets/doc-images/all-products-page.png)
@@ -343,7 +334,7 @@ Tasks:
 
     </details>
 
-5. Product Details Page
+- Product Details Page
    This Page is rendered when a user clicks on a certain product in order to see a more detailed view of what the product is.
 <details><summary>Click to view Product Details Page</summary>
 
@@ -355,7 +346,8 @@ Tasks:
 <details><summary>Click to view Review Product - Create</summary>
 
 
-    ![Image of Review Product - Create]()
+    ![Image of Review Product - Create](assets/doc-images/create-review.png)
+    ![Image of Review Product - Success](assets/doc-images/customer-review.png)
 
     </details>
 
@@ -375,21 +367,14 @@ Tasks:
 
     </details>
 
-6. About Page
+##### 6. About Page
 <details><summary>Click to view About Page</summary>
 
-![Image of Product About Page]()
+![Image of Product About Page](assets/doc-images/about-page.png)
 
 </details>
 
-7. Brands Page
-<details><summary>Click to view Brands Page</summary>
-
-![Image of Product Brands Page]()
-
-</details>
-
-8. User Profile Page
+##### 7.User Profile Page
 <details><summary>Click to view User Profile Page</summary>
 This page will hold the customers past orders and delivery information, their wishlist and reviews will also be available to edit or delete here.
 
@@ -398,7 +383,7 @@ This page will hold the customers past orders and delivery information, their wi
 
 </details>
 
-9. Shopping Cart Page
+##### 8. Shopping Cart Page
 <details><summary>Click to view Shopping Bag Page</summary>
 When a user chooses and item to buy, it will be added to the cart page. When the cart icon is clicked, the user will be brought to the cart page to see details of what they would like to buy, with product name, amount, individual cost and total.
 
@@ -406,7 +391,7 @@ When a user chooses and item to buy, it will be added to the cart page. When the
 
 </details>
 
-10. Checkout Page
+##### 9. Checkout Page
 <details><summary>Click to view Checkout Page</summary>
 When the customer decides they have finished shopping and would like to checkout their products, they will click on the checkout button. From here, they will brought to the checkout page, where they will enter their personal details, such as name, address, phone number etc.They will also enter their valid credit/debit card details securely using Stripe and click Pay Now button.
 
@@ -414,7 +399,7 @@ When the customer decides they have finished shopping and would like to checkout
 
 </details>
 
-11. Order Confirmation Page
+##### 10. Order Confirmation Page
 <details><summary>Click to view Order Confirmation Page</summary>
 When payment has been successful, an order confirmation page will display for the user. Here it will show details of the order and a message to say that an email will also be sent
 
@@ -424,14 +409,15 @@ When payment has been successful, an order confirmation page will display for th
 
 [Back to Top](#feather-and-wood)
 
-12. Order Confirmation Email
-<details><summary>Click to view Order Confirmation Email</summary>
+- Past orders
+<details><summary>Click to view Past Order sample</summary>
+In the user's profile page, they will be able to see a list of their past purchases and click on any of them to review.
 
-![Image of Order Confirmation Email]()
+![Image of Past Order History](assets/doc-images/past-order.png)
 
 </details>
 
-13. Administration Page Overview
+##### 11. Administration Page Overview
 <details><summary>Click to view Administration Page Overview</summary>
 Functionality to add new products, new brands, edit or delete products/brands. They will have access to view order details such as customer name,address and phone number and what they ordered.
 
@@ -439,20 +425,20 @@ Functionality to add new products, new brands, edit or delete products/brands. T
 
 </details>
 
-14. Register/Login Pages
+##### 12. Register/Login Pages
 <details><summary>Click to view Register and Login Pages</summary>
 Custom register and login pages are provided using django’s allauth system. The layout of the pages are simple, user-friendly and a bit more aesthetically pleasing than the default page that Django provides.
 
-![Image of Register Page]()
-![Image of Login Page]()
+![Image of Register Page](assets/doc-images/register-page.png)
+![Image of Login Page](assets/doc-images/signin-page.png)
 
 </details>
 
-15. Sign Out Page
+##### 13. Sign Out Page
 <details><summary>Click to view Sign Out Page</summary>
 Custom sign out page, making logging out simple and user intuitive. A message will appear to confirm that user is logged out to give better piece of mind that their details are safe.
 
-![Image of Sign Out Page]()
+![Image of Sign Out Page](assets/doc-images/signout-page.png)
 
 </details>
 
@@ -495,7 +481,9 @@ Please see ****testing docs url path here!!******** for details of testing
 
 ## Bugs:
 After connecting my Heroku app and AWS S3 Bucket for serving media and static files, the app stopped connecting.
-To fix this:
+To fix this:I figured out that I needed to reconfigure my CORS policy.
+
+
 
 [Back to Top](#feather-and-wood)
 

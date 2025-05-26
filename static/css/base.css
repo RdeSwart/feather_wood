@@ -313,6 +313,8 @@ h1.display-5 small {
       padding: 1rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       border-top: 1px solid #ccc;
+      position: relative;
+      z-index: 9999;
   }
 
   #main_nav .nav-link {
