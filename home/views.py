@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from products.models import Product, WishlistItem
+from django.contrib import messages
 
 
 def index(request):
@@ -32,4 +33,13 @@ def contact(request):
     """
     This view returns the Contact Us Page
     """
-    return render(request, 'contact.html', {})
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+
+        messages.success(request, 'Thank you! Your enquiry has been sent.')
+        return redirect('contact')
+
+    return render(request, 'contact.html')
