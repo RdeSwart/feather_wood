@@ -9,10 +9,32 @@ body {
     color: #daa1d0;
 }
 
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+  }
+  
+.dropdown-menu {
+    font-size: 1rem;
+  }
+  
+.navbar-nav {
+    gap: 0.5rem;
+  }
+
 .nav-icon {
     color: #daa1d0;
 }
 
+.navbar-nav .nav-link {
+    border-radius: 0.5rem;
+    transition: background 0.3s;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background-color: #b6afaf;
+    color: #ffffff;
+  }
 
 .navbar {
     flex-wrap: nowrap !important;
@@ -21,11 +43,6 @@ body {
 
 .navbar-brand {
     font-size: 2rem;
-}
-
-.main-sort-header {
-    background-color: #b6afaf !important;
-    color: white !important;
 }
 
 #main-nav {
@@ -308,6 +325,14 @@ h1.display-5 small {
     .card-text {
         font-size: 1.25rem;
     }
+
+    .container-carousel {
+        max-width: 50%;
+      }
+
+    .carousel-img {
+        height: 60vh;
+      }
 }
 
 @media (min-width: 992px) {
@@ -363,28 +388,40 @@ h1.display-5 small {
 
 /* --------------------------------------------------- Code from codepen.io  */
   #carousel .carousel-item.craft {
-    background-image: url("/media/hero-art.jpg");
+    background-image: url("/media/carousel-one.jpg");
   }
   
   #carousel .carousel-item.winner {
-    background-image: url("/media/winner-resize.webp");
+    background-image: url("/media/carousel-win.jpg");
   }
   
   #carousel .carousel-item.gentle {
-    background-image: url("/media/gentle-play.jpg");
+    background-image: url("/media/carousel-three.jpg");
   }
 
   .carousel-img {
-    height: 60vh;
-    
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
   }
   
-  #carousel .carousel-item {
+  /* #carousel .carousel-item {
     width: 100%;
     min-height: 320px;
     background: no-repeat center center scroll;
     background-size: cover;
     object-fit: cover;
+  } */
+
+  #carousel .carousel-item {
+    width: 100%;
+  }
+
+  .container-carousel {
+    width: 100%;
+    max-width: 50%;
+    margin: 0 auto;
   }
   
   #carousel .carousel-inner .carousel-item {
