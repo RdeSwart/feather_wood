@@ -185,3 +185,45 @@ def submit_review(request, product_id):
         'product': product,
     }
     return render(request, 'products/submit_review.html', context)
+
+
+@login_required
+def edit_review(request, review_id):
+    """
+    This view allows logged in Users to edit their product review.
+    """
+    review = get_object_or_404(ProductReview, id=review_id, user=request.user)
+    form = ProductReviewForm(request.POST or None, instance=review)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your review was updated.")
+            return redirect('profile')
+        else:
+            messages.error(request, "There was an error updating your review.")
+
+    context = {
+        'form': form,
+        'product': review.product,
+        'review': review,
+    }
+    return render(request, 'products/edit_review.html', context)
+
+
+@login_required
+def delete_review(request, review_id):
+    """
+    This view allows logged in Users to delete their product review.
+    """
+    review = get_object_or_404(ProductReview, id=review_id, user=request.user)
+
+    if request.method == 'POST':
+        review.delete()
+        messages.success(request, "Your review has been deleted.")
+        return redirect('profile')
+
+    context = {
+        'review': review
+    }
+    return render(request, 'products/delete_review.html', context)

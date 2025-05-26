@@ -72,22 +72,25 @@
             </div>
         </div>
     </div>
-    {% for product in purchased_products %}
-    <div class="product-review-section">
-        <h4>{{ product.name }}</h4>
-        {{ product.get_star_rating|safe }}
+    {% for item in purchased_products %}
+        {% with product=item.product user_has_reviewed=item.user_has_reviewed %}
+            <div class="product-review-section border rounded p-3 mb-4">
+                <h4>{{ product.name }}</h4>
+                {{ product.get_star_rating|safe }}
 
-        {% for review in product.reviews.all %}
-        <p><strong>{{ review.user }}:</strong> {{ review.review_text }} ({{ review.rating }}/5)</p>
-        {% endfor %}
+                {% for review in product.reviews.all %}
+                    <p><strong>{{ review.user }}:</strong> {{ review.review_text }} ({{ review.rating }}/5)</p>
+                    {% if review.user == request.user %}
+                        <a href="{% url 'edit_review' review.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                        <a href="{% url 'delete_review' review.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                    {% endif %}
+                {% endfor %}
 
-        <form method="POST" action="{% url 'submit_review' product.id %}">
-        {% csrf_token %}
-        {{ review_form.rating }}
-        {{ review_form.review_text }}
-        <button type="submit">Submit Review</button>
-        </form>
-    </div>
+                {% if not user_has_reviewed %}
+                    <a href="{% url 'submit_review' product.id %}" class="btn btn-sm btn-success mt-2">Write a Review</a>
+                {% endif %}
+            </div>
+        {% endwith %}
     {% endfor %}
     <div class="col-12 mt-5">
         <h5 class="text-muted">My Wishlist</h5>

@@ -27,20 +27,28 @@ def profile(request):
     else:
         form = UserProfileForm(instance=user_profile)
 
-    purchased_products = Product.objects.filter(
-        orderlineitem__order__user_profile=user_profile
+    purchased_product_qs = Product.objects.filter(
+    orderlineitem__order__user_profile=user_profile
     ).distinct()
 
-    submitted_reviews = ProductReview.objects.filter(user=request.user)
+    reviewed_product_ids = ProductReview.objects.filter(
+        user=request.user
+    ).values_list('product_id', flat=True)
+
+    purchased_products = []
+    for product in purchased_product_qs:
+        purchased_products.append({
+            'product': product,
+            'user_has_reviewed': product.id in reviewed_product_ids,
+        })
 
     context = {
-        'profile': user_profile,
-        'form': form,
-        'orders': orders,
-        'wishlist_items': wishlist_items,
-        'purchased_products': purchased_products,
-        'submitted_reviews': submitted_reviews,
-        'review_form': ProductReviewForm(),
+    'profile': user_profile,
+    'form': form,
+    'orders': orders,
+    'wishlist_items': wishlist_items,
+    'purchased_products': purchased_products,
+    'review_form': ProductReviewForm(),
     }
 
     return render(request, 'profiles/profiles.html', context)
