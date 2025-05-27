@@ -5,11 +5,13 @@
 <header class="masthead">
   <div class="container-carousel mx-auto">
     <div id="carousel" class="carousel slide hero-slides" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-      <li class="active" data-target="#carousel" data-bs-slide-to="0"></li>
-      <li data-target="#carousel" data-bs-slide-to="1"></li>
-      <li data-target="#carousel" data-bs-slide-to="2"></li>
-    </ol>
+      <ol class="carousel-indicators">
+        <li class="active" data-target="#carousel" data-bs-slide-to="0"></li>
+        <li data-target="#carousel" data-bs-slide-to="1"></li>
+        <li data-target="#carousel" data-bs-slide-to="2"></li>
+      </ol>
+    </div>
+    
     <div class="carousel-inner" role="listbox">
       
       <!-- Slide 1 -->
@@ -79,7 +81,8 @@
                         <!-- Product image -->
                         {% if product.image %}
                             <a href="{% url 'product_detail' product.id %}">
-                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" 
+                                loading="lazy" width="300" height="200">
                             </a>
                         {% else %}
                           <a href="{% url 'product_detail' product.id %}">

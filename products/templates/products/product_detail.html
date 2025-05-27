@@ -10,7 +10,8 @@
     <div class="row">
         <!-- Product Images -->
         <div class="col-md-6 mb-4">
-            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded mb-3 product-image" id="mainImage">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded mb-3 product-image" 
+            id="mainImage" loading="lazy" width="300" height="200">
         </div>
 
         <!-- Product Details -->
@@ -95,10 +96,8 @@
                             {% endif %}
                         </form>
                     </div>
-            </form>
         </div>
     </div>
-</div>
 <hr>
 <h3 class="logo-font">Customer Reviews</h3>
 {% if reviews %}

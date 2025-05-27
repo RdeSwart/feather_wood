@@ -113,14 +113,14 @@
           <div class="col-12 col-lg-4 my-auto py-0">
             <ul class="list-inline list-unstyled text-center text-lg-right my-0">
               <li class="list-inline-item dropdown">
-                <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown" 
+                <a class="nav-link" href="#" id="user-options-desktop" data-bs-toggle="dropdown" 
                 aria-haspopup="true" aria-expanded="false">
                   <div class="text-center">
                     <div><i class="nav-icon fas fa-user fa-lg"></i></div>
                     <p class="my-0">My Account</p>
                   </div>
                 </a>
-                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                <div class="dropdown-menu border-0" aria-labelledby="user-options-desktop">
                   {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
                   <a href="/admin/" class="dropdown-item">Product Management</a>
@@ -248,16 +248,16 @@
             <div class="mt-4">
               
               <a href="https://www.facebook.com/profile.php?id=61574163059661" 
-              target='_blank' rel='noopener noreferrer' type="button" 
+              target='_blank' rel='noopener noreferrer'
               class="btn btn-floating btn-light btn-lg" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
               
               <a href="https://bsky.app/" 
               target='_blank' rel='noopener noreferrer'
-              type="button" class="btn btn-floating btn-light btn-lg" aria-label="Follow us on Bluesky"><i class="fab fa-twitter"></i></a>
+             class="btn btn-floating btn-light btn-lg" aria-label="Follow us on Bluesky"><i class="fab fa-twitter"></i></a>
               
               <a href="https://www.instagram.com/" 
               target='_blank' rel='noopener noreferrer'
-              type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-instagram" aria-label="Follow us on Instagram"></i></a>
+             class="btn btn-floating btn-light btn-lg" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
               
             </div>
           </div>

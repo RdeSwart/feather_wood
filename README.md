@@ -298,14 +298,14 @@ Tasks:
     * Hero Section - Image Carousel
     <details><summary>Click to view Hero Section</summary>
 
-    ![Image of Hero Section]()
+![Image of Hero Section]()
 
     </details>
 
     * Featured Products Area - Products on Sale
     <details><summary>Click to view Featured Products</summary>
 
-    ![Image of Featured Products]()
+![Image of Featured Products]()
 
     </details>
 
@@ -313,8 +313,8 @@ Tasks:
 <details><summary>Click to view Newsletter Signup</summary>
 
 
-    ![Image of Newsletter Signup](assets/doc-images/newsletter.png)
-    ![Newsletter Success Message](assets/doc-images/newsletter-success.png)
+![Image of Newsletter Signup](assets/doc-images/newsletter.png)
+![Newsletter Success Message](assets/doc-images/newsletter-success.png)
     </details>
 
 [Back to Top](#feather-and-wood)
@@ -330,7 +330,7 @@ Tasks:
 <details><summary>Click to view Single Product Card</summary>
 
 
-    ![Image of Single Product Card](assets/doc-images/single-product-card.png)
+![Image of Single Product Card](assets/doc-images/single-product-card.png)
 
     </details>
 
@@ -346,8 +346,7 @@ Tasks:
 <details><summary>Click to view Review Product - Create</summary>
 
 
-    ![Image of Review Product - Create](assets/doc-images/create-review.png)
-    ![Image of Review Product - Success](assets/doc-images/customer-review.png)
+![Image of Review Product - Create](assets/doc-images/create-review.png)
 
     </details>
 
@@ -355,7 +354,7 @@ Tasks:
 <details><summary>Click to view Review Product - Edit</summary>
 
 
-    ![Image of Review Product - Edit]()
+![Image of Review Product - Edit](assets/doc-images/edit-review.png)
 
     </details>
 
@@ -363,7 +362,7 @@ Tasks:
 <details><summary>Click to view Review Product - Delete</summary>
 
 
-    ![Image of Review Product - Delete]()
+![Image of Review Product - Delete](assets/doc-images/delete-review.png)
 
     </details>
 
@@ -379,6 +378,7 @@ Tasks:
 This page will hold the customers past orders and delivery information, their wishlist and reviews will also be available to edit or delete here.
 
 ![Image of User Profile Page](assets/doc-images/user-profile-page.png)
+
 ![User Profile Page Wishlist](assets/doc-images/user-wishlist.png)
 
 </details>
@@ -468,6 +468,7 @@ Customers can also signup to Feather and Woods Newsletter. This is done using Ma
 It is located near the footer here:
 
 ![Image of Newsletter Signup](assets/doc-images/newsletter.png)
+
 ![Successfull newsletter signup message](assets/doc-images/newsletter-success.png)
 
 
@@ -477,7 +478,7 @@ To help improve our SEO, I made a sitemap.xml via [sitemap.xl.com](https://www.x
 
 
 ## Testing:
-Please see ****testing docs url path here!!******** for details of testing
+Please see [this document](assets\TESTING.md) for details of testing
 
 ## Bugs:
 After connecting my Heroku app and AWS S3 Bucket for serving media and static files, the app stopped connecting.
@@ -488,6 +489,8 @@ To fix this:I figured out that I needed to reconfigure my CORS policy.
 [Back to Top](#feather-and-wood)
 
 ## Technologies and Languages:
+
+WRITE THEM HERE!!!!!!!!!!!!!!!!!
 
 ## Deployment:
 I deployed this project to Heroku, but used AWS S3 to store all media and static files.
