@@ -479,7 +479,7 @@ To help improve our SEO, I made a sitemap.xml via [sitemap.xl.com](https://www.x
 
 
 ## Testing:
-Please see [this document](assets\TESTING.md) for details of testing
+Please see [this document](assets/TESTING.md) for details of testing
 
 ## Bugs:
 1.After connecting my Heroku app and AWS S3 Bucket for serving media and static files, the app stopped connecting.
