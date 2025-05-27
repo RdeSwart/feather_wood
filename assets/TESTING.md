@@ -1,12 +1,12 @@
-# 🧪 Testing: Feather and Wood
+#  Testing: Feather and Wood
 
-This document outlines the testing strategy and results for the **Feather and Wood** Django-based e-commerce site. Testing covers manual functional tests, Lighthouse audits, automated Django tests, third-party integrations, accessibility, and known issues.
+This document outlines the testing strategy and results for the **Feather and Wood** Django-based e-commerce site. Testing covers manual functional tests, Lighthouse audits,  third-party integrations, accessibility, and known issues.
 
 ---
 
 ## ✅ Manual Testing
 
-### 🌐 Core Pages
+###  Core Pages
 
 | Page                | Tested? | Notes                                   |
 |---------------------|--------|-----------------------------------------|
@@ -19,7 +19,7 @@ This document outlines the testing strategy and results for the **Feather and Wo
 
 ---
 
-### 📋 Manual Test Checklist
+###  Manual Test Checklist
 
 | Feature                                | Scenario Tested                                         | Result |
 |----------------------------------------|----------------------------------------------------------|--------|
@@ -34,10 +34,23 @@ This document outlines the testing strategy and results for the **Feather and Wo
 | Email Signup (Mailchimp)              | Subscribed, duplicate email, error handling             | ✅     |
 | Social Login (Google/Facebook)         | Login, logout, permissions checked                      | ✅     |
 | 404 Page                               | Access `/this-does-not-exist` URL                       | ✅     |
-
+| Social Media Links | Opens in new tab | ✅ |
+| Toasts | Popup messages appear for user feedback| ✅ |
+| Footer links | Link open in new page at correct location | ✅|
+| Dropdown Menu | Categories are shown | ✅|
+| Wishlist Feature | Only works when logged in |  ✅|
+| Wishlist listed | On profile page|  ✅|
+| Wishlist delete | wishlist item can be deleted |  ✅|
+| Sorting Feature | User sorts in ascend/descend order |  ✅|
+| Search bar | use keywords to search site |  ✅|
+| Product Detail | Single product is shown |  ✅|
+| Review facility| CRUD working|  ✅|
+| List of reviews| shown on profile page |  ✅|
+| Product review| Shows in Customer reviews on product detail page | ✅|
+|Admin site| Full admin functionality|  ✅|
 ---
 
-## 💡 Lighthouse Performance Audits
+##  Lighthouse Performance Audits
 
 ### Desktop
 
@@ -45,8 +58,8 @@ This document outlines the testing strategy and results for the **Feather and Wo
 |----------------|-------|
 | Performance    | 98    |
 | Accessibility  | 100   |
-| Best Practices | 100   |
-| SEO            | 100   |
+| Best Practices | 96   |
+| SEO            | 97   |
 
 ### Mobile
 
@@ -59,19 +72,26 @@ This document outlines the testing strategy and results for the **Feather and Wo
 
 ---
 
-## 🧪 Django Automated Tests
 
 ### Run Tests
 
-🌍 Accessibility & Code Validation
+#### Accessibility & Code Validation:
 
 |Tool	|Outcome	|URL|
 --------|-----------|----
-|W3C HTML Validator	|✅ No critical errors	|https://validator.w3.org|
+|W3C HTML Validator	|✅ No errors	|https://validator.w3.org|
 |JSHint	|✅ ES6 validated	|https://jshint.com|
+| Jigsaw Validator | ✅ No errors | https://jigsaw.w3.org/css-validator/validator
 |WAVE (Accessibility)	|✅ Minor contrast warnings	|https://wave.webaim.org|
 
-🤝 Third-Party Integration Testing
+All pages were tested through the W3C Validator for html and they passed.
+![Pass message](doc-images/w3c-validator.png)
+
+Css was tested through the Jigsaw validator and passed.
+![Jigsaw Pass](doc-images/jigsaw-validation.png)
+
+
+#### Third-Party Integration Testing:
 
 |Service	|Functionality	|Tested?	|Notes|
 --------|---------|---------|--
@@ -80,17 +100,14 @@ This document outlines the testing strategy and results for the **Feather and Wo
 |Google Auth	|Social login via Google	|✅	|Logged in and profile populated|
 |Facebook Auth	|Social login via Facebook	|✅	|Permissions and logout tested|
 
-❌ Known Issues / To-Do
+#### Known Issues / still To-Do:
+
 |Issue	|Status	|Notes|
 --------|-------|---------
 |Critical CSS loading	|⚠️|	Identified, but will be addressed later|
 |Bootstrap unused CSS warning	|⚠️|	Minor, from Lighthouse report|
-|Image loading performance on S3	|⚠️	|Consider CDN or image compression|
+|Image loading performance on S3	|⚠️	|Needs image compression|
 
-
-### Code Validation
-All pages were tested through the W3C Validator for html and they passed.
-![Pass message](doc-images/w3c-validator.png)
 
 
 

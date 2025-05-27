@@ -4,19 +4,19 @@ Feather and Wood is a website that sells wooden, plush and STEM toys to those wh
 Alot of these customers follow or are curious about the Montessorri or Steiner teachings, which is ultimately teaching through play, giving space for the individual child's own imagination.
 
 ![Am I responsive image](assets/doc-images/am-i-responsive.png)
-![Click here to view the live site](https://feather-and-wood-c856568c8675.herokuapp.com)
+[Click here to view the live site](https://feather-and-wood-c856568c8675.herokuapp.com)
 
 ## Table of Contents:
 
 1. [User Experience(UX)](#user-experience)
-   _[Strategy / Site Goals](#strategy-site-goals)
-   _[Scope / User Stories](#scope-user-stories)
-   _[Structure / Design](#structure-design)
-   _[Colour Scheme](#colour-scheme)
-   _[Fonts Used](#fonts-used)
-   _[Wireframes](#wireframes)
-   _[Database Schema](#database-schema)
-   _[Agile Methodology](#agile-methodology)
+   - [Strategy / Site Goals](#strategy-site-goals)
+   - [Scope / User Stories](#scope-user-stories)
+   -[Structure / Design](#structure-design)
+   - [Colour Scheme](#colour-scheme)
+   - [Fonts Used](#fonts-used)
+   - [Wireframes](#wireframes)
+   - [Database Schema](#database-schema)
+   - [Agile Methodology](#agile-methodology)
 2. [Features](#features)
 3. [Marketing](#marketing)
 4. [SEO](#seo)
@@ -24,8 +24,8 @@ Alot of these customers follow or are curious about the Montessorri or Steiner t
 6. [Bugs](#bugs)
 7. [Technologies and Languages](#technologies-and-languages)
 8. [Deployment](#deployment)
-   _[Cloning](#cloning)
-   _[Forking](#forking)
+   - [Cloning](#cloning)
+   - [Forking](#forking)
 9. [Credits](#credits)
 
 ## User Experience
@@ -64,7 +64,7 @@ and filter feature, high quality images, clear product descriptions, a ratings/r
 
 <details><summary>Click to view KanBan</summary>
 
-![Image of KanBan]()
+[Link to Kanban Board](https://github.com/users/RdeSwart/projects/5/views/1)
 
 </details>
 
@@ -72,20 +72,20 @@ and filter feature, high quality images, clear product descriptions, a ratings/r
 
 #### Colour Scheme:
 
-Talk of colour scheme here........................
+The overall colour scheme was inspired by nature, featuring earthy and muted tones that convey a sense of warmth, comfort, and simplicity. This palette supports the brand's focus on gentle play and natural materials, creating an inviting and trustworthy atmosphere for visitors.
 
 #### Fonts Used:
 
-Talk of Google fonts here........................
+I used Google font - Saira, with a fallback of sans-serif should it fail.
 
 #### Wireframes:
 
-I used Balsamiq to create the wireframe for the project.
+I drew out my own wireframe for the project
 
 <details><summary>Click to view Wireframes</summary>
 
-![Wireframe desktop]()
-![Wireframe mobile]()
+![Wireframe desktop](assets/doc-images/wireframe-desktop.jpg)
+![Wireframe mobile](assets/doc-images/wireframe-mobile.jpg)
 
 </details>
 
@@ -295,17 +295,18 @@ Tasks:
 
 </details>
 
-    * Hero Section - Image Carousel
-    <details><summary>Click to view Hero Section</summary>
+- Hero Section - Image Carousel
 
-![Image of Hero Section]()
+<details><summary>Click to view Hero Section</summary>
+
+![Image of Hero Section](assets/doc-images/carousel-landing.png)
 
     </details>
 
-    * Featured Products Area - Products on Sale
-    <details><summary>Click to view Featured Products</summary>
+- Featured Products Area - Products on Sale
+<details><summary>Click to view Featured Products</summary>
 
-![Image of Featured Products]()
+![Image of Featured Products](assets/doc-images/featured-products.png)
 
     </details>
 
@@ -384,7 +385,7 @@ This page will hold the customers past orders and delivery information, their wi
 </details>
 
 ##### 8. Shopping Cart Page
-<details><summary>Click to view Shopping Bag Page</summary>
+<details><summary>Click to view Shopping Cart Page</summary>
 When a user chooses and item to buy, it will be added to the cart page. When the cart icon is clicked, the user will be brought to the cart page to see details of what they would like to buy, with product name, amount, individual cost and total.
 
 ![Image of User Shopping Cart Page](assets/doc-images/shopping-cart-page.png)
@@ -452,8 +453,8 @@ Features I didn't have time for or would like to implement in the future:
 
 ## Marketing:
 
-Business Model: 
-Marketing:
+### Business Model: 
+#### Marketing:
 To keep customers up to date with social media, Feather and Wood has a Facebook page, which is linked in the footer. Here, the site is updated daily with either stories or posts or both, some of which will ask for interaction with customers to keep them engaged and to keep our content relevant and consistently in the customers mind’s eye. 
 
 You can view it here: [Link to Facebook Page](https://www.facebook.com/profile.php?id=61574163059661#)
@@ -481,8 +482,11 @@ To help improve our SEO, I made a sitemap.xml via [sitemap.xl.com](https://www.x
 Please see [this document](assets\TESTING.md) for details of testing
 
 ## Bugs:
-After connecting my Heroku app and AWS S3 Bucket for serving media and static files, the app stopped connecting.
+1.After connecting my Heroku app and AWS S3 Bucket for serving media and static files, the app stopped connecting.
 To fix this:I figured out that I needed to reconfigure my CORS policy.
+
+2.Cart items were not saving after purchase.
+To fix this: In cart_contents, context processor was handling both cart data types but in checkout/views, it wasn't handling the else block so no products were saving unless they were plain integers. So I placed the update_total() after the loop, not inside so it is called once after the items have been created.
 
 
 
@@ -490,7 +494,36 @@ To fix this:I figured out that I needed to reconfigure my CORS policy.
 
 ## Technologies and Languages:
 
-WRITE THEM HERE!!!!!!!!!!!!!!!!!
+### Languages Used:
+1. HTML5
+2. CSS3
+3. Javascript
+4. Python
+
+### Frameworks Used:
+1. Django
+2. Bootstrap
+
+### Libraries and Installed Packages:
+1. Django crispy forms - used to render forms
+2. Django storages - custom storage backends
+3. widget tweaks
+4. gunicorn - a python WSGI HTTP server for UNIX
+5. psycopg2 - a PostgreSQL database adapter
+6. Django allauth - for authorization, registration and account management
+7. Django countries - provides a list of countries for use with forms
+8. boto3 - An Amazon Web Services(AWS) software development kit (SDK) used to connect to S3 bucket
+9. Bootstrap toasts - to relay Django messages
+
+### Tools Used:
+1. VS Code
+2. Github
+3. Heroku
+4. Am I Responsive
+5. Codepen.io
+6. Amazon Web Services
+7. Font Awesome
+8. Google Fonts
 
 ## Deployment:
 I deployed this project to Heroku, but used AWS S3 to store all media and static files.
@@ -554,5 +587,7 @@ If you want to contribute your changes to the original repository, you can creat
 2. OpenAi - ChatGpt for problem solving and further understanding when I couldn't find the answers elsewhere.
 3. Stack Overflow for problems that I searched for.
 4. The wonderful Slack community - most of my searches brought something up here and it was nice to know I was not the only one facing certain problems!
+5. Images from Adobe Stock on free trial
+6. Youtube - for deeper understanding of databases
 
 [Back to Top](#feather-and-wood)
